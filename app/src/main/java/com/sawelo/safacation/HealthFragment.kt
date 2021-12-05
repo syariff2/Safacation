@@ -11,6 +11,7 @@ class HealthFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        println("Percobaan baru")
         return inflater.inflate(R.layout.fragment_health, container, false)
     }
 }
