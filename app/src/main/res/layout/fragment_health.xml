@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/linearlayout1"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="128dp"
         android:padding="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +60,7 @@
     <LinearLayout
         android:id="@+id/linearlayout2"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="128dp"
         android:padding="7dp"
         app:layout_constraintEnd_toEndOf="@+id/linearlayout1"
         app:layout_constraintStart_toStartOf="@+id/linearlayout1"
@@ -113,7 +113,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="126dp"
         android:padding="5dp"
         app:layout_constraintStart_toStartOf="@+id/linearlayout2"
         app:layout_constraintEnd_toEndOf="@+id/linearlayout2"
