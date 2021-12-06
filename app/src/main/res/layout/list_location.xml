@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/frame"
+    android:layout_marginBottom="5dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp">
+
+    <TextView
+        android:id="@+id/namelokasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:maxLines="3"
+        android:padding="5dp"
+        android:text="@string/location"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/addresslokasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:maxLines="3"
+        android:padding="5dp"
+        android:text="@string/address"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/namelokasi"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/namelokasi"
+        app:layout_constraintTop_toTopOf="@+id/namelokasi" />
+
+    <ImageView
+        android:id="@+id/posterlokasi"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@color/cardview_dark_background"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="@+id/addresslokasi"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/addresslokasi"
+        app:layout_constraintTop_toTopOf="@+id/addresslokasi"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/deskripsilokasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:maxLines="3"
+        android:padding="5dp"
+        android:text="@string/deskripsi"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/posterlokasi"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/posterlokasi"
+        app:layout_constraintTop_toTopOf="@+id/posterlokasi" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
