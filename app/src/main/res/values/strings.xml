@@ -13,4 +13,10 @@
     <string name="deskrpsi1">Untuk menghindari penularan penyakit melalui tangan. Untuk menjaga kebersihan diri (perorangan) Untuk membuat tubuh kita tetap sehat dan bugar. Supaya tidak menjadi agen penularan bibit penyakit kepada orang lain.</string>
     <string name="deskrpsi2">Menjaga jarak atau physical distancing, sebagai bagian dari protokol kesehatan dalam upaya pencegahan penyebaran COVID-19 menjadi penting untuk dilakukan. Sebagaimana menurut rekomendasi dari Badan Kesehatan Dunia (WHO)</string>
     <string name="deskrpsi3">Vitamin memiliki berbagai fungsi yang membantu mengatur metabolisme, mencegah penyakit kronis (seperti penyakit jantung dan kanker) dan untuk memelihara nafsu makan, kesehatan mental dan kekebalan tubuh.</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detail_photo">Detail photo</string>
+    <string name="star_review">Star review</string>
+    <string name="jadwal_buka">Jadwal buka</string>
+    <string name="dibuka">DIBUKA</string>
 </resources>
