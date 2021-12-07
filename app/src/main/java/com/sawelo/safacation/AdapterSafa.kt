@@ -1,31 +1,23 @@
 package com.sawelo.safacation
 
-import android.os.Parcel
-import android.os.Parcelable
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
-class AdapterSafa() : RecyclerView.Adapter<AdapterSafa.ListViewHolder>(), Parcelable {
-    constructor(parcel: Parcel) : this() {
-    }
-
-    class ListViewHolder {
+class AdapterSafa(private val listSafa: ArrayList<DataSafa>) : RecyclerView.Adapter<AdapterSafa.ListViewHolder>() {
+    class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     }
 
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
+        TODO("Not yet implemented")
     }
 
-    override fun describeContents(): Int {
-        return 0
+    override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
+        TODO("Not yet implemented")
     }
 
-    companion object CREATOR : Parcelable.Creator<AdapterSafa> {
-        override fun createFromParcel(parcel: Parcel): AdapterSafa {
-            return AdapterSafa(parcel)
-        }
-
-        override fun newArray(size: Int): Array<AdapterSafa?> {
-            return arrayOfNulls(size)
-        }
+    override fun getItemCount(): Int {
+        TODO("Not yet implemented")
     }
 }
