@@ -5,6 +5,63 @@
     <string name="health_guidance">Health Guidance</string>
     <string name="deskripsi">Deskripsi lokasi</string>
 
+    <!--Name Lokasi  -->
+
+    <string-array name="name_lokasi">
+        <item>Taman Kota Pekanbaru</item>
+        <item>Taman Agrowisata Tenayan Raya</item>
+        <item>Taman Rekreasi Alam Mayang</item>
+        <item>Wisata Danau Buatan</item>
+        <item>Asia Farm Hayday</item>
+        <item>Citraland Waterpark</item>
+        <item>Labersa Water Park Riau fantasi</item>
+        <item>Wisata Dakwah Okura</item>
+        <item>Nayla Green Valley</item>
+        <item>Masjid Raya An-Nur Provinsi Riauy</item>
+    </string-array>
+
+    <!-- address   -->
+    <string-array name="address">
+        <item>Kp.Bandar, Kec.Senapelan, Kota Pekanbaru, Riau</item>
+        <item>Jl.Kadiran, Kulim, Kec.Tenayan Raya, Kota Pekanbaru, Riau</item>
+        <item>Jl.Imam Munandar, Tengkerang Tim, Kec.Tenayan Raya, Kota Pekanbaru, Riau</item>
+        <item>Lembah Sari, Kec.Rumbai Pesisir, Kota Pekanbaru, Riau</item>
+        <item>Jl.Badak Ujung, Sail, Kec.Tenayan Raya, Kota Pekanbaru, Riau</item>
+        <item>CTengkerang Barat, Kec.Marpoyan Damai, Kota Pekanbaru, Riau</item>
+        <item>Jl.Labersa, Simpang Tiga, Kec.Siak Hulu, Kabupaten Kampar, Riau</item>
+        <item>Jl.Raja Panjang Okura, Tebing Tinggi Okura, Kec.Rumbai Pesisir, Kota Pekanbaru, Riau</item>
+        <item>Muara Fajar, Kec. Rumbai, Kota Pekanbaru, Riau</item>
+        <item>Jl. Hangtuah Ujung, Sumahilang, Kec.Pekanbaru Kota, Kota Pekanbaru, Riau</item>
+    </string-array>
+
+    <!-- POSTER  -->
+    <integer-array name="data_poster">
+        <item>@drawable/tamankota</item>
+        <item>@drawable/tamanagrowisata</item>
+        <item>@drawable/tamanalammayang</item>
+        <item>@drawable/danaubuatan</item>
+        <item>@drawable/asiafarm</item>
+        <item>@drawable/citralandwaterpark</item>
+        <item>@drawable/labersa</item>
+        <item>@drawable/wisataokura</item>
+        <item>@drawable/naylagreen</item>
+        <item>@drawable/masjidrayariau</item>
+    </integer-array>
+
+    <!-- deskripsi Lokasi  -->
+    <string-array name="deskripsi_lokasi">
+        <item>Taman Kota yang letaknya tepat berada di Samping Hotel Aryaduta Kota Pekanbaru ini selalu ramai dikunjungi warga, terutama saat liburan.</item>
+        <item>Agrowisata Tenayan Raya ini letaknya tidak terlalu jauh dari pusat kota Pekanbaru. Berada di Jalan Kadiran, Kelurahan Sialang Rampai, Kecamatan Tenayan Raya, Kota Pekanbaru, agrowisata ini telah berdiri sejak tahun 2013 </item>
+        <item>Wisata Alam Mayang Pekanbaru merupakan salah satu wisata rekreasi andalan milik Kota Pekanbaru. Sama seperti Kebun Raya Bogor dan taman bermain lainnya, wisata Alam Mayang ini selalu ramai dikunjungi saat akhir pekan atau saat liburan tiba. Wisata Alam Mayang yang berada di pusat Kota Pekanbaru ini banyak menyediakan fasilitas hiburan untuk keluarga.</item>
+        <item>Danau Buatan ini berada di Jalan Pramuka / Jalan Lingkar Danau Buatan, Kelurahan Lembah Sari, Kecamatan Rumbai Timur.</item>
+        <item>Asia Farm resmi dibuka sejak tanggal 21 April 2019 dapat merasakan sensasi seperti berada di luar negeri. </item>
+        <item>Citraland Waterpark Pekanbaru dibangun di atas lahan seluas 1 hektare. Lokasinya terbilang strategis, berdiri megah di tengah kota.</item>
+        <item>Labersa riau fantasi merupakan tempat hiburan dan wisata yang mempunyai luas sekitar 8 Ha memiliki wahana waterpark dan wahana thempark.</item>
+        <item>Wisata Dakwah Okura mengusung konsep wisata syariah yang mengangkat kebiasaan yang disunnahkan oleh Rasulullah SAW yakni berkuda, memanah dan berenang.</item>
+        <item>Objek wisata Nayla Green Valley terletak di Jalan Garuda KM 8 Jalan Belidang dekat Pesantren Ibnu Katsir Muara Fajar Rumbai Pekanbaru. Di sana, banyak fasilitas yang bisa dinikmati bersama keluarga dan orang-orang tersayang.</item>
+        <item>Masjid Raya An Nur merupakan sebuah masjid yang terletak di Pekanbaru, Indonesia. Masjid ini dibangun pada tahun 1963 dan selesai pada tahun 1968. Masjid yang di ibukota Provinsi Riau, Pekanbaru tersebut saat ini merupakan salah satu yang termegah di Indonesia.</item>
+    </string-array>
+
     <!--Teks Health -->
     <string name="helath1">Cuci Tangan</string>
     <string name="helath2">Ya Jaga Jarak</string>
