@@ -26,7 +26,7 @@ class HealthFragment : Fragment() {
         val fab = view.findViewById<ExtendedFloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
             val intent = Intent(requireContext(), DetailActivity::class.java)
-            intent.putExtra(DetailActivity.NAMA_LOKASI_EXTRA, "Taman Agrowisata Tenayan Raya")
+            intent.putExtra(DetailActivity.NAMA_LOKASI_EXTRA, DetailSourceData.nameLokasi.random())
             startActivity(intent)
         }
     }

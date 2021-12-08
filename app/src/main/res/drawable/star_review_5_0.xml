@@ -1,0 +1,41 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="144dp"
+    android:height="27dp"
+    android:viewportWidth="144"
+    android:viewportHeight="27">
+  <group>
+    <clip-path
+        android:pathData="M0,0h27v27h-27z"/>
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M6.1,26.06a0.89,0.89 0,0 1,-1.26 -1l1.4,-8L0.29,11.42A1,1 0,0 1,0.77 9.81L9,8.64l3.69,-7.3a0.86,0.86 0,0 1,1.56 0L18,8.64l8.27,1.17a0.94,0.94 0,0 1,0.47 1.61l-5.94,5.66 1.4,8a0.9,0.9 0,0 1,-1.26 1L13.5,22.25 6.09,26.06Z"/>
+  </group>
+  <group>
+    <clip-path
+        android:pathData="M29.03,0h27v27h-27z"/>
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M35.12,26.06a0.9,0.9 0,0 1,-1.26 -1l1.4,-8 -5.94,-5.66a0.94,0.94 0,0 1,0.48 -1.61l8.26,-1.17 3.69,-7.3a0.86,0.86 0,0 1,1.56 0L47,8.64l8.26,1.17a0.94,0.94 0,0 1,0.48 1.61l-6,5.66 1.4,8a0.89,0.89 0,0 1,-1.25 1l-7.41,-3.81 -7.41,3.81Z"/>
+  </group>
+  <group>
+    <clip-path
+        android:pathData="M58.05,0h27v27h-27z"/>
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M64.14,26.06a0.89,0.89 0,0 1,-1.25 -1l1.4,-8 -6,-5.66a0.94,0.94 0,0 1,0.48 -1.61l8.26,-1.17 3.69,-7.3a0.86,0.86 0,0 1,1.56 0L76,8.64l8.26,1.17a0.94,0.94 0,0 1,0.48 1.61l-5.94,5.66 1.4,8a0.9,0.9 0,0 1,-1.26 1l-7.41,-3.81 -7.41,3.81Z"/>
+  </group>
+  <group>
+    <clip-path
+        android:pathData="M87.07,0h27v27h-27z"/>
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M93.17,26.06a0.9,0.9 0,0 1,-1.26 -1l1.4,-8 -6,-5.66a1,1 0,0 1,0.48 -1.61l8.27,-1.17 3.68,-7.3a0.87,0.87 0,0 1,1.57 0L105,8.64l8.27,1.17a0.94,0.94 0,0 1,0.47 1.61l-5.94,5.66 1.4,8a0.9,0.9 0,0 1,-1.26 1l-7.41,-3.81 -7.4,3.81Z"/>
+  </group>
+  <group>
+    <clip-path
+        android:pathData="M116.1,0h27v27h-27z"/>
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M122.19,26.06a0.9,0.9 0,0 1,-1.26 -1l1.4,-8 -5.94,-5.66a0.94,0.94 0,0 1,0.48 -1.61l8.26,-1.17 3.69,-7.3a0.86,0.86 0,0 1,1.56 0l3.69,7.3 8.26,1.17a0.94,0.94 0,0 1,0.48 1.61l-5.95,5.66 1.4,8a0.89,0.89 0,0 1,-1.25 1l-7.41,-3.81 -7.41,3.81Z"/>
+  </group>
+</vector>

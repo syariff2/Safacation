@@ -32,10 +32,25 @@ class DetailActivity : AppCompatActivity() {
         val dataGambar = DetailSourceData.gambarLokasi[dataPosition]
         val dataBintang = DetailSourceData.bintang[dataPosition]
 
+        val gambarBintang = when (dataBintang.mRound(0.5)) {
+            0.5 -> R.drawable.star_review_0_5
+            1.0 -> R.drawable.star_review_1_0
+            1.5 -> R.drawable.star_review_1_5
+            2.0 -> R.drawable.star_review_2_0
+            2.5 -> R.drawable.star_review_2_5
+            3.0 -> R.drawable.star_review_3_0
+            3.5 -> R.drawable.star_review_3_5
+            4.0 -> R.drawable.star_review_4_0
+            4.5 -> R.drawable.star_review_4_5
+            5.0 -> R.drawable.star_review_5_0
+            else -> R.drawable.star_review_0_5
+        }
+
         setDetailPhoto(dataGambar)
         binding.detailNamaLokasi.text = namaLokasi
         binding.detailAlamat.text = alamatLokasi
         binding.detailJadwalBuka.text = jadwalBuka
+        binding.detailBintang.setImageResource(gambarBintang)
 
         binding.detailRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@DetailActivity)
@@ -86,8 +101,8 @@ class DetailActivity : AppCompatActivity() {
         )
     }
 
-    fun Double.mRound(value: Double, factor: Double): Double {
-        return (value / factor).roundToInt() * factor
+    private fun Double.mRound(factor: Double): Double {
+        return (this / factor).roundToInt() * factor
     }
 
     companion object {
