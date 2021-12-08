@@ -62,6 +62,7 @@
                 android:text="@string/dibuka" />
 
             <TextView
+                android:id="@+id/detail_nama_lokasi"
                 style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -70,6 +71,7 @@
                 tools:text="Nama Lokasi" />
 
             <ImageView
+                android:id="@+id/detail_bintang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
@@ -77,6 +79,7 @@
                 android:contentDescription="@string/star_review"/>
 
             <TextView
+                android:id="@+id/detail_alamat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
@@ -91,6 +94,7 @@
                 android:text="@string/jadwal_buka" />
 
             <TextView
+                android:id="@+id/detail_jadwal_buka"
                 style="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -105,13 +109,12 @@
                 />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/detail_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/list_detail_review"/>
 
         </LinearLayout>
-
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

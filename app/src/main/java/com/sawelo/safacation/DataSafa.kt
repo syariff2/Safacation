@@ -9,4 +9,4 @@ data class DataSafa (
     var address : String,
     var poster : Int ,
     var deskripsi : String
-): Parcelable
+):Parcelable
