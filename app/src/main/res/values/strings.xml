@@ -1,12 +1,11 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Safacation</string>
     <string name="location">Location</string>
-    <string name="address">Aderess</string>
+    <string name="address">Address</string>
     <string name="health_guidance">Health Guidance</string>
     <string name="deskripsi">Deskripsi lokasi</string>
 
-    <!--Name Lokasi  -->
-
+    <!--  Name lokasi  -->
     <string-array name="name_lokasi">
         <item>Taman Kota Pekanbaru</item>
         <item>Taman Agrowisata Tenayan Raya</item>
@@ -17,10 +16,10 @@
         <item>Labersa Water Park Riau fantasi</item>
         <item>Wisata Dakwah Okura</item>
         <item>Nayla Green Valley</item>
-        <item>Masjid Raya An-Nur Provinsi Riauy</item>
+        <item>Masjid Raya An-Nur Provinsi Riau</item>
     </string-array>
 
-    <!-- address   -->
+    <!-- Address   -->
     <string-array name="address">
         <item>Kp.Bandar, Kec.Senapelan, Kota Pekanbaru, Riau</item>
         <item>Jl.Kadiran, Kulim, Kec.Tenayan Raya, Kota Pekanbaru, Riau</item>
@@ -34,21 +33,72 @@
         <item>Jl. Hangtuah Ujung, Sumahilang, Kec.Pekanbaru Kota, Kota Pekanbaru, Riau</item>
     </string-array>
 
-    <!-- POSTER  -->
-    <integer-array name="data_poster">
+    <!-- Poster  -->
+    <integer-array name="poster_1">
         <item>@drawable/tamankota</item>
+        <item>@drawable/tamankota1</item>
+        <item>@drawable/tamankota2</item>
+    </integer-array>
+    <integer-array name="poster_2">
         <item>@drawable/tamanagrowisata</item>
+        <item>@drawable/tamanagrowisata1</item>
+        <item>@drawable/tamanagrowisata2</item>
+    </integer-array>
+    <integer-array name="poster_3">
         <item>@drawable/tamanalammayang</item>
+        <item>@drawable/tamanalammayang1</item>
+        <item>@drawable/tamanalammayang2</item>
+    </integer-array>
+    <integer-array name="poster_4">
         <item>@drawable/danaubuatan</item>
+        <item>@drawable/danaubuatan1</item>
+        <item>@drawable/danaubuatan2</item>
+    </integer-array>
+    <integer-array name="poster_5">
         <item>@drawable/asiafarm</item>
+        <item>@drawable/asiafarm1</item>
+        <item>@drawable/asiafarm2</item>
+    </integer-array>
+    <integer-array name="poster_6">
         <item>@drawable/citralandwaterpark</item>
+        <item>@drawable/citralandwaterpark1</item>
+        <item>@drawable/citralandwaterpark2</item>
+    </integer-array>
+    <integer-array name="poster_7">
         <item>@drawable/labersa</item>
+        <item>@drawable/labersa1</item>
+        <item>@drawable/labersa2</item>
+    </integer-array>
+    <integer-array name="poster_8">
         <item>@drawable/wisataokura</item>
+        <item>@drawable/wisataokura1</item>
+        <item>@drawable/wisataokura2</item>
+    </integer-array>
+    <integer-array name="poster_9">
         <item>@drawable/naylagreen</item>
+        <item>@drawable/naylagreen1</item>
+        <item>@drawable/naylagreen2</item>
+    </integer-array>
+    <integer-array name="poster_10">
         <item>@drawable/masjidrayariau</item>
+        <item>@drawable/masjidrayariau1</item>
+        <item>@drawable/masjidrayariau2</item>
     </integer-array>
 
-    <!-- deskripsi Lokasi  -->
+    <array name="data_poster">
+        <item>@array/poster_1</item>
+        <item>@array/poster_2</item>
+        <item>@array/poster_3</item>
+        <item>@array/poster_4</item>
+        <item>@array/poster_5</item>
+        <item>@array/poster_6</item>
+        <item>@array/poster_7</item>
+        <item>@array/poster_8</item>
+        <item>@array/poster_9</item>
+        <item>@array/poster_10</item>
+    </array>
+
+    <!-- Deskripsi lokasi  -->
     <string-array name="deskripsi_lokasi">
         <item>Taman Kota yang letaknya tepat berada di Samping Hotel Aryaduta Kota Pekanbaru ini selalu ramai dikunjungi warga, terutama saat liburan.</item>
         <item>Agrowisata Tenayan Raya ini letaknya tidak terlalu jauh dari pusat kota Pekanbaru. Berada di Jalan Kadiran, Kelurahan Sialang Rampai, Kecamatan Tenayan Raya, Kota Pekanbaru, agrowisata ini telah berdiri sejak tahun 2013 </item>
@@ -62,7 +112,99 @@
         <item>Masjid Raya An Nur merupakan sebuah masjid yang terletak di Pekanbaru, Indonesia. Masjid ini dibangun pada tahun 1963 dan selesai pada tahun 1968. Masjid yang di ibukota Provinsi Riau, Pekanbaru tersebut saat ini merupakan salah satu yang termegah di Indonesia.</item>
     </string-array>
 
-    <!--Teks Health -->
+    <!--Jadwal buka-->
+    <string-array name="jadwal_buka">
+        <item>Every Day (08.00–00.00)</item>
+        <item>Every Day (08.00–00.00)</item>
+        <item>Every Day (08.00–00.00)</item>
+        <item>Every Day (08.00–00.00)</item>
+        <item>Every Day (08.00–00.00)</item>
+        <item>Every Day (08.00–00.00)</item>
+        <item>Every Day (08.00–00.00)</item>
+        <item>Every Day (08.00–00.00)</item>
+        <item>Every Day (08.00–00.00)</item>
+        <item>Every Day (08.00–00.00)</item>
+    </string-array>
+
+    <!--Data review-->
+    <array name="data_review" tools:ignore="TypographyEllipsis">
+        <item>
+            <string-array name="review_1">
+                <string name="Susilo Atmaji">Tempat Rehat sejenak sebelum melanjutkan perjalanan</string>
+                <string name="Guntur yudha Prawira">Tempat santai dan bermain dengan anak</string>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="review_2">
+                <string name="MD chanel24">Cocok buat anak-anak dan keluarga tercinta edukasi tentang alam</string>
+                <string name="huda anshori">Bagus dalam pengembangan Edukasi bagi Anak dan keluarga</string>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="review_3">
+                <string name="ROHUL SENO">Tempatnya semakin bersih dan nyaman, Cocok untuk refresing Keluarga</string>
+                <string name="RB IWAN">Luas,asri,murah ticketnya dan bersih. Cocok untuk rekreasi keluarga</string>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="review_4">
+                <string name="Fajar Yudarma">Tempat wisata sekaligus tempat rekreasi bagi keluarga dan teman-teman yg hobi memancing</string>
+                <string name="Supriyono Supriyono">Wisata murah untuk keluarga. Bisa mancing di lokasi</string>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="review_5">
+                <string name="Dewi Wahyuni">Cocok buat liburan keluarga, edukasi dan hiburan</string>
+                <string name="Rianty RiaNty">Cukup bagus buat edukasi dan hiburan anak...terus dikembangkan yah</string>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="review_6">
+                <string name="Ruslina Alidar">Mantap, dan memuaskan untuk liburan bawa keluarga  cocok banget... Aman</string>
+                <string name="Femusara 12">Water park yg tidak terlalu luas tapi cukup nyaman untuk liburan keluarga</string>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="review_7">
+                <string name="Devha metika sofia de">Wahana yang menegangkan,membuat saya ketagihan.</string>
+                <string name="ryan kido">Wahana bermain yg seru di kota Pekanbaru</string>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="review_8">
+                <string name="Yendri Ikhlas Fernando">Saya pernah kesini. Bagus untuk olahraga islami yakni berkuda dan memanah. Bisa kursys berkuda atau hanya tes naik.</string>
+                <string name="Siti Aisyah Rahmi">Tempat wisata olahraga sunnah terbaik..</string>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="review_9">
+                <string name="Ali Bakri">Tempat mancing bisa harian dan kiloan, cocok bawa keluarga sekaligus refresing</string>
+                <string name="Edi Mak Itam">Sungguh memanjakan mata.. Rugi tak datang..</string>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="review_10">
+                <string name="Risang Aji">bagus dan sangat nyaman</string>
+                <string name="Iqbal Suliansyah">Arsitekturnya menarik dan unik. Ini mesjid yang bersih dan nyaman juga.Tempatnya strategis dan halaman luas.</string>
+            </string-array>
+        </item>
+    </array>
+
+    <!--Review bintang-->
+    <array name="data_bintang">
+        <item>4.5</item>
+        <item>4.1</item>
+        <item>4.1</item>
+        <item>4.1</item>
+        <item>3.8</item>
+        <item>4.5</item>
+        <item>4.2</item>
+        <item>4.3</item>
+        <item>4.5</item>
+        <item>4.8</item>
+    </array>
+
+    <!--Teks health -->
     <string name="helath1">Cuci Tangan</string>
     <string name="helath2">Ya Jaga Jarak</string>
     <string name="helath3">Makan Vitamin</string>
@@ -71,7 +213,6 @@
     <string name="deskrpsi2">Menjaga jarak atau physical distancing, sebagai bagian dari protokol kesehatan dalam upaya pencegahan penyebaran COVID-19 menjadi penting untuk dilakukan. Sebagaimana menurut rekomendasi dari Badan Kesehatan Dunia (WHO)</string>
     <string name="deskrpsi3">Vitamin memiliki berbagai fungsi yang membantu mengatur metabolisme, mencegah penyakit kronis (seperti penyakit jantung dan kanker) dan untuk memelihara nafsu makan, kesehatan mental dan kekebalan tubuh.</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="detail_photo">Detail photo</string>
     <string name="star_review">Star review</string>
     <string name="jadwal_buka">Jadwal buka</string>

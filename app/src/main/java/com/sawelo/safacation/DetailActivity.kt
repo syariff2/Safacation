@@ -23,8 +23,10 @@ class DetailActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.detail_recycler_view)
         recyclerView.setHasFixedSize(true)
 
-        val namaLokasi = intent.extras?.getString(NAMA_LOKASI_EXTRA)
-        val dataPosition = DetailSourceData.nameLokasi.indexOf(namaLokasi)
+        val detailExtra = intent.extras?.getParcelable<DataSafa>(DETAIL_EXTRA)
+        val detailExtraNama = detailExtra?.namelokasi
+
+        val dataPosition = DetailSourceData.nameLokasi.indexOf(detailExtraNama)
 
         val alamatLokasi = DetailSourceData.alamat[dataPosition]
         val jadwalBuka = DetailSourceData.jadwalBuka[dataPosition]
@@ -47,7 +49,7 @@ class DetailActivity : AppCompatActivity() {
         }
 
         setDetailPhoto(dataGambar)
-        binding.detailNamaLokasi.text = namaLokasi
+        binding.detailNamaLokasi.text = detailExtraNama
         binding.detailAlamat.text = alamatLokasi
         binding.detailJadwalBuka.text = jadwalBuka
         binding.detailBintang.setImageResource(gambarBintang)
@@ -106,6 +108,6 @@ class DetailActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val NAMA_LOKASI_EXTRA = "NAMA_LOKASI_EXTRA"
+        const val DETAIL_EXTRA = "DETAIL_EXTRA"
     }
 }

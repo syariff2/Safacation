@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import java.util.ArrayList
+import java.util.*
 
 class AdapterSafa(private val listSafa : ArrayList<DataSafa>) : RecyclerView.Adapter<AdapterSafa.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
@@ -28,9 +28,8 @@ class AdapterSafa(private val listSafa : ArrayList<DataSafa>) : RecyclerView.Ada
         holder.datadeskripsi.text = deskripsi
 
         holder.itemView.setOnClickListener {
-            onItemClickCallback.onItemClicked(listSafa [holder.adapterPosition])
+            onItemClickCallback.onItemClicked(listSafa[holder.adapterPosition])
         }
-
     }
 
     override fun getItemCount(): Int = listSafa.size

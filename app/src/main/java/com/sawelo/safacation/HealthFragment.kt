@@ -18,16 +18,5 @@ class HealthFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        /**
-         * Aku taruh tombol fab disini sementara aja,
-         * cuma biar bisa masuk detail activity
-         */
-        val fab = view.findViewById<ExtendedFloatingActionButton>(R.id.fab)
-        fab.setOnClickListener {
-            val intent = Intent(requireContext(), DetailActivity::class.java)
-            intent.putExtra(DetailActivity.NAMA_LOKASI_EXTRA, DetailSourceData.nameLokasi.random())
-            startActivity(intent)
-        }
     }
 }
