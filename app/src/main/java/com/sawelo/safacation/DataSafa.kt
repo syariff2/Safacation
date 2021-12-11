@@ -5,8 +5,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class DataSafa (
-    var namelokasi : String,
-    var address : String,
-    var poster : Int ,
-    var deskripsi : String
+    val namaLokasi : String,
+    val alamat : String,
+    val poster : Int ,
+    val deskripsi : String,
 ):Parcelable

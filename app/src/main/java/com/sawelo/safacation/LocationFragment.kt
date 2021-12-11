@@ -10,12 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import java.util.*
+import com.sawelo.safacation.utils.ResourcesValuePull
 
 class LocationFragment : Fragment(), AdapterSafa.OnItemClickCallback {
 
     private lateinit var rvLocation: RecyclerView
-    private val locationList = ArrayList<DataSafa>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +29,6 @@ class LocationFragment : Fragment(), AdapterSafa.OnItemClickCallback {
         rvLocation = view.findViewById(R.id.rv_location)
         rvLocation.setHasFixedSize(true)
 
-        locationList.addAll(dataList)
         showRecyclerList()
     }
 
@@ -40,39 +38,14 @@ class LocationFragment : Fragment(), AdapterSafa.OnItemClickCallback {
         startActivity(intent)
     }
 
-    private val dataList: ArrayList<DataSafa>
-        get() {
-            val dataLokasi = resources.getStringArray(R.array.name_lokasi)
-            val dataAddress = resources.getStringArray(R.array.address)
-            val dataPoster = resources.obtainTypedArray(R.array.data_poster)
-            val dataDeskripsi = resources.getStringArray(R.array.deskripsi_lokasi)
-            val listSafa = ArrayList<DataSafa>()
-
-            for (i in dataLokasi.indices) {
-                val posterItemResId = dataPoster.getResourceId(i, -1)
-                val posterItemArray = resources.obtainTypedArray(posterItemResId)
-
-                val data = DataSafa(
-                    dataLokasi[i],
-                    dataAddress[i],
-                    posterItemArray.getResourceId(0, 0),
-                    dataDeskripsi[i]
-                )
-                posterItemArray.recycle()
-                listSafa.add(data)
-            }
-
-            dataPoster.recycle()
-            return listSafa
-        }
-
     private fun showRecyclerList() {
         if (requireContext().resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             rvLocation.layoutManager = GridLayoutManager(requireContext(), 2)
         } else {
             rvLocation.layoutManager = LinearLayoutManager(requireContext())
         }
-        val locationAdapter = AdapterSafa(locationList)
+        val resourcesValue = ResourcesValuePull(resources)
+        val locationAdapter = AdapterSafa(resourcesValue.getAllDataSafa())
         locationAdapter.setOnItemClickCallback(this)
         rvLocation.adapter = locationAdapter
     }

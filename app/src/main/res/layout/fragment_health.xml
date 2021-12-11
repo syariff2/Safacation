@@ -9,47 +9,45 @@
     <LinearLayout
         android:id="@+id/linearlayout1"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:padding="7dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/posterhealth1"
+            android:id="@+id/poster_health_1"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
             android:src="@drawable/wash_your_hands"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.044"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/health_1"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="24dp">
 
             <TextView
-                android:id="@+id/titlehealth1"
+                android:id="@+id/title_health_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:text="@string/helath1"
+                android:text="@string/health_1"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/descrphealth1"
+                android:id="@+id/desc_health_1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="24dp"
-                android:justificationMode="inter_word"
+                android:layout_height="wrap_content"
                 android:maxLines="7"
-                android:text="@string/deskrpsi1"
+                android:text="@string/health_deskripsi_1"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
         </LinearLayout>
@@ -60,51 +58,49 @@
     <LinearLayout
         android:id="@+id/linearlayout2"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
-        android:padding="7dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
         app:layout_constraintEnd_toEndOf="@+id/linearlayout1"
         app:layout_constraintStart_toStartOf="@+id/linearlayout1"
         app:layout_constraintTop_toBottomOf="@+id/linearlayout1">
 
         <ImageView
-            android:id="@+id/posterhealth2"
+            android:id="@+id/poster_health_2"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
             android:src="@drawable/social_distancing"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.044"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/health_2"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="24dp">
 
             <TextView
-                android:id="@+id/titlehealth2"
+                android:id="@+id/title_health_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:text="@string/helath2"
+                android:text="@string/health_2"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/posterhealth2"
-                app:layout_constraintStart_toEndOf="@+id/posterhealth2"
-                app:layout_constraintTop_toTopOf="@+id/posterhealth2"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintBottom_toBottomOf="@+id/poster_health_2"
+                app:layout_constraintStart_toEndOf="@+id/poster_health_2"
+                app:layout_constraintTop_toTopOf="@+id/poster_health_2" />
 
             <TextView
-                android:id="@+id/descrphealth2"
+                android:id="@+id/desc_health_2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="24dp"
-                android:justificationMode="inter_word"
+                android:layout_height="wrap_content"
                 android:maxLines="7"
-                android:text="@string/deskrpsi2"
+                android:text="@string/health_deskripsi_2"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
 
@@ -113,55 +109,52 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="126dp"
-        android:padding="5dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
         app:layout_constraintEnd_toEndOf="@+id/linearlayout2"
         app:layout_constraintStart_toStartOf="@+id/linearlayout2"
         app:layout_constraintTop_toBottomOf="@+id/linearlayout2">
 
         <ImageView
-            android:id="@+id/posterhealth3"
+            android:id="@+id/poster_health_3"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
             android:src="@drawable/vitamins"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.044"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/health_3"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="24dp">
 
             <TextView
-                android:id="@+id/titlehealth3"
+                android:id="@+id/title_health_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:text="@string/helath3"
+                android:text="@string/health_3"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/posterhealth3"
-                app:layout_constraintStart_toEndOf="@+id/posterhealth3"
-                app:layout_constraintTop_toTopOf="@+id/posterhealth3"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintBottom_toBottomOf="@+id/poster_health_3"
+                app:layout_constraintStart_toEndOf="@+id/poster_health_3"
+                app:layout_constraintTop_toTopOf="@+id/poster_health_3" />
 
             <TextView
-                android:id="@+id/descrphealth3"
+                android:id="@+id/desc_health_3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="24dp"
-                android:justificationMode="inter_word"
-                android:text="@string/deskrpsi3"
+                android:layout_height="wrap_content"
+                android:text="@string/health_deskripsi_3"
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/titlehealth3"
-                app:layout_constraintTop_toBottomOf="@+id/titlehealth3" />
+                app:layout_constraintStart_toStartOf="@+id/title_health_3"
+                app:layout_constraintTop_toBottomOf="@+id/title_health_3" />
         </LinearLayout>
     </LinearLayout>
 

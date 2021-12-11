@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ASUS/ProgramLibrary/AndroidApp/Safacation/app/src/main/res/drawable/frame.xml" value="0.278125" />
         <entry key="..\:/Users/ASUS/ProgramLibrary/AndroidApp/Safacation/app/src/main/res/layout/activity_detail.xml" value="0.182518115942029" />
         <entry key="..\:/Users/ASUS/ProgramLibrary/AndroidApp/Safacation/app/src/main/res/layout/activity_main.xml" value="0.18" />
-        <entry key="..\:/Users/ASUS/ProgramLibrary/AndroidApp/Safacation/app/src/main/res/layout/fragment_health.xml" value="0.2" />
+        <entry key="..\:/Users/ASUS/ProgramLibrary/AndroidApp/Safacation/app/src/main/res/layout/fragment_health.xml" value="0.33" />
         <entry key="..\:/Users/ASUS/ProgramLibrary/AndroidApp/Safacation/app/src/main/res/layout/fragment_location.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/ProgramLibrary/AndroidApp/Safacation/app/src/main/res/layout/list_detail_review.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/ProgramLibrary/AndroidApp/Safacation/app/src/main/res/layout/list_location.xml" value="0.33" />

@@ -6,9 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import java.util.*
 
-class AdapterSafa(private val listSafa : ArrayList<DataSafa>) : RecyclerView.Adapter<AdapterSafa.ListViewHolder>() {
+class AdapterSafa(private val listSafa : List<DataSafa>) : RecyclerView.Adapter<AdapterSafa.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -21,9 +20,9 @@ class AdapterSafa(private val listSafa : ArrayList<DataSafa>) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val (namelokasi, address, poster,deskripsi ) = listSafa [position]
-        holder.dataname.text = namelokasi
-        holder.dataaddress.text = address
+        val (namaLokasi, alamat, poster, deskripsi ) = listSafa [position]
+        holder.dataname.text = namaLokasi
+        holder.dataaddress.text = alamat
         holder.dataposter.setImageResource(poster)
         holder.datadeskripsi.text = deskripsi
 

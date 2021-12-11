@@ -7,11 +7,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.sawelo.safacation.databinding.ActivityDetailBinding
+import com.sawelo.safacation.utils.ResourcesValuePull
 import kotlin.math.roundToInt
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
     private lateinit var recyclerView: RecyclerView
+
+    private lateinit var namaLokasi: String
+    private lateinit var alamatLokasi: String
+    private lateinit var jadwalBuka: String
+    private lateinit var dataPosterResult: List<Int>
+    private lateinit var dataReviewResult: List<Pair<String, String>>
+
+    private var dataBintang: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,15 +33,9 @@ class DetailActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
 
         val detailExtra = intent.extras?.getParcelable<DataSafa>(DETAIL_EXTRA)
-        val detailExtraNama = detailExtra?.namelokasi
+        val detailExtraNama = detailExtra?.namaLokasi
 
-        val dataPosition = DetailSourceData.nameLokasi.indexOf(detailExtraNama)
-
-        val alamatLokasi = DetailSourceData.alamat[dataPosition]
-        val jadwalBuka = DetailSourceData.jadwalBuka[dataPosition]
-        val dataReview = DetailSourceData.dataReview[dataPosition]
-        val dataGambar = DetailSourceData.gambarLokasi[dataPosition]
-        val dataBintang = DetailSourceData.bintang[dataPosition]
+        getDataFromResource(detailExtraNama)
 
         val gambarBintang = when (dataBintang.mRound(0.5)) {
             0.5 -> R.drawable.star_review_0_5
@@ -48,17 +51,16 @@ class DetailActivity : AppCompatActivity() {
             else -> R.drawable.star_review_0_5
         }
 
-        setDetailPhoto(dataGambar)
-        binding.detailNamaLokasi.text = detailExtraNama
+        setDetailPhoto(dataPosterResult)
+        binding.detailNamaLokasi.text = namaLokasi
         binding.detailAlamat.text = alamatLokasi
         binding.detailJadwalBuka.text = jadwalBuka
         binding.detailBintang.setImageResource(gambarBintang)
 
         binding.detailRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@DetailActivity)
-            adapter = DetailReviewAdapter(dataReview)
+            adapter = DetailReviewAdapter(dataReviewResult)
         }
-
     }
 
     /**
@@ -72,7 +74,23 @@ class DetailActivity : AppCompatActivity() {
         return false
     }
 
-    private fun setDetailPhoto(dataGambar: IntArray) {
+    private fun getDataFromResource(detailExtraNama: String?) {
+        val dataPositionInResource =
+            if (detailExtraNama != null) {
+                resources.getStringArray(R.array.nama_lokasi).indexOf(detailExtraNama)
+            } else 0
+
+        val resourcesValue = ResourcesValuePull(resources)
+
+        namaLokasi = resourcesValue.getNamaLokasi(dataPositionInResource)
+        alamatLokasi = resourcesValue.getAlamatLokasi(dataPositionInResource)
+        jadwalBuka = resourcesValue.getJadwalBuka(dataPositionInResource)
+        dataBintang = resourcesValue.getDataBintang(dataPositionInResource)
+        dataReviewResult = resourcesValue.getDataReview(dataPositionInResource)
+        dataPosterResult = resourcesValue.getDataPoster(dataPositionInResource)
+    }
+
+    private fun setDetailPhoto(dataGambar: List<Int>) {
         binding.detailPhotoPager.adapter = DetailPhotoAdapter(
             supportFragmentManager, lifecycle, dataGambar,
         )
@@ -90,11 +108,13 @@ class DetailActivity : AppCompatActivity() {
                     super.onPageScrolled(position, positionOffset, positionOffsetPixels)
                     when {
                         (positionOffset < 0.5) -> {
-                            val currentPosition = "${position + 1} / ${DetailPhotoAdapter.ITEM_COUNT}"
+                            val currentPosition =
+                                "${position + 1} / ${DetailPhotoAdapter.ITEM_COUNT}"
                             binding.detailPhotoPosition.text = currentPosition
                         }
                         (positionOffset >= 0.5) -> {
-                            val currentPosition = "${position + 2} / ${DetailPhotoAdapter.ITEM_COUNT}"
+                            val currentPosition =
+                                "${position + 2} / ${DetailPhotoAdapter.ITEM_COUNT}"
                             binding.detailPhotoPosition.text = currentPosition
                         }
                     }

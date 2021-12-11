@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="TypographyEllipsis">
     <string name="app_name">Safacation</string>
     <string name="location">Location</string>
     <string name="address">Address</string>
@@ -6,7 +6,7 @@
     <string name="deskripsi">Deskripsi lokasi</string>
 
     <!--  Name lokasi  -->
-    <string-array name="name_lokasi">
+    <string-array name="nama_lokasi">
         <item>Taman Kota Pekanbaru</item>
         <item>Taman Agrowisata Tenayan Raya</item>
         <item>Taman Rekreasi Alam Mayang</item>
@@ -20,7 +20,7 @@
     </string-array>
 
     <!-- Address   -->
-    <string-array name="address">
+    <string-array name="alamat_lokasi">
         <item>Kp.Bandar, Kec.Senapelan, Kota Pekanbaru, Riau</item>
         <item>Jl.Kadiran, Kulim, Kec.Tenayan Raya, Kota Pekanbaru, Riau</item>
         <item>Jl.Imam Munandar, Tengkerang Tim, Kec.Tenayan Raya, Kota Pekanbaru, Riau</item>
@@ -127,71 +127,143 @@
     </string-array>
 
     <!--Data review-->
-    <array name="data_review" tools:ignore="TypographyEllipsis">
-        <item>
-            <string-array name="review_1">
-                <string name="Susilo Atmaji">Tempat Rehat sejenak sebelum melanjutkan perjalanan</string>
-                <string name="Guntur yudha Prawira">Tempat santai dan bermain dengan anak</string>
-            </string-array>
-        </item>
-        <item>
-            <string-array name="review_2">
-                <string name="MD chanel24">Cocok buat anak-anak dan keluarga tercinta edukasi tentang alam</string>
-                <string name="huda anshori">Bagus dalam pengembangan Edukasi bagi Anak dan keluarga</string>
-            </string-array>
-        </item>
-        <item>
-            <string-array name="review_3">
-                <string name="ROHUL SENO">Tempatnya semakin bersih dan nyaman, Cocok untuk refresing Keluarga</string>
-                <string name="RB IWAN">Luas,asri,murah ticketnya dan bersih. Cocok untuk rekreasi keluarga</string>
-            </string-array>
-        </item>
-        <item>
-            <string-array name="review_4">
-                <string name="Fajar Yudarma">Tempat wisata sekaligus tempat rekreasi bagi keluarga dan teman-teman yg hobi memancing</string>
-                <string name="Supriyono Supriyono">Wisata murah untuk keluarga. Bisa mancing di lokasi</string>
-            </string-array>
-        </item>
-        <item>
-            <string-array name="review_5">
-                <string name="Dewi Wahyuni">Cocok buat liburan keluarga, edukasi dan hiburan</string>
-                <string name="Rianty RiaNty">Cukup bagus buat edukasi dan hiburan anak...terus dikembangkan yah</string>
-            </string-array>
-        </item>
-        <item>
-            <string-array name="review_6">
-                <string name="Ruslina Alidar">Mantap, dan memuaskan untuk liburan bawa keluarga  cocok banget... Aman</string>
-                <string name="Femusara 12">Water park yg tidak terlalu luas tapi cukup nyaman untuk liburan keluarga</string>
-            </string-array>
-        </item>
-        <item>
-            <string-array name="review_7">
-                <string name="Devha metika sofia de">Wahana yang menegangkan,membuat saya ketagihan.</string>
-                <string name="ryan kido">Wahana bermain yg seru di kota Pekanbaru</string>
-            </string-array>
-        </item>
-        <item>
-            <string-array name="review_8">
-                <string name="Yendri Ikhlas Fernando">Saya pernah kesini. Bagus untuk olahraga islami yakni berkuda dan memanah. Bisa kursys berkuda atau hanya tes naik.</string>
-                <string name="Siti Aisyah Rahmi">Tempat wisata olahraga sunnah terbaik..</string>
-            </string-array>
-        </item>
-        <item>
-            <string-array name="review_9">
-                <string name="Ali Bakri">Tempat mancing bisa harian dan kiloan, cocok bawa keluarga sekaligus refresing</string>
-                <string name="Edi Mak Itam">Sungguh memanjakan mata.. Rugi tak datang..</string>
-            </string-array>
-        </item>
-        <item>
-            <string-array name="review_10">
-                <string name="Risang Aji">bagus dan sangat nyaman</string>
-                <string name="Iqbal Suliansyah">Arsitekturnya menarik dan unik. Ini mesjid yang bersih dan nyaman juga.Tempatnya strategis dan halaman luas.</string>
-            </string-array>
-        </item>
+    <string-array name="review_1_1">
+        <item>Susilo Atmaji</item>
+        <item>Tempat Rehat sejenak sebelum melanjutkan perjalanan</item>
+    </string-array>
+    <string-array name="review_1_2">
+        <item>Guntur yudha Prawira</item>
+        <item>Tempat santai dan bermain dengan anak</item>
+    </string-array>
+    <string-array name="review_2_1">
+        <item>MD chanel24</item>
+        <item>Cocok buat anak-anak dan keluarga tercinta edukasi tentang alam</item>
+    </string-array>
+    <string-array name="review_2_2">
+        <item>huda anshori</item>
+        <item>Bagus dalam pengembangan Edukasi bagi Anak dan keluarga</item>
+    </string-array>
+    <string-array name="review_3_1">
+        <item>ROHUL SENO</item>
+        <item>Tempatnya semakin bersih dan nyaman, Cocok untuk refresing Keluarga</item>
+    </string-array>
+    <string-array name="review_3_2">
+        <item>RB IWAN</item>
+        <item>Luas,asri,murah ticketnya dan bersih. Cocok untuk rekreasi keluarga</item>
+    </string-array>
+    <string-array name="review_4_1">
+        <item>Fajar Yudarma</item>
+        <item>Tempat wisata sekaligus tempat rekreasi bagi keluarga dan teman-teman yg hobi memancing</item>
+    </string-array>
+    <string-array name="review_4_2">
+        <item>Supriyono Supriyono</item>
+        <item>Wisata murah untuk keluarga. Bisa mancing di lokasi</item>
+    </string-array>
+    <string-array name="review_5_1">
+        <item>Dewi Wahyuni</item>
+        <item>Cocok buat liburan keluarga, edukasi dan hiburan</item>
+    </string-array>
+    <string-array name="review_5_2">
+        <item>Rianty RiaNty</item>
+        <item>Cukup bagus buat edukasi dan hiburan anak...terus dikembangkan yah</item>
+    </string-array>
+    <string-array name="review_6_1">
+        <item>Ruslina Alidar</item>
+        <item>Mantap, dan memuaskan untuk liburan bawa keluarga  cocok banget... Aman</item>
+    </string-array>
+    <string-array name="review_6_2">
+        <item>Femusara 12</item>
+        <item>Water park yg tidak terlalu luas tapi cukup nyaman untuk liburan keluarga</item>
+    </string-array>
+    <string-array name="review_7_1">
+        <item>Devha metika sofia de</item>
+        <item>Wahana yang menegangkan,membuat saya ketagihan.</item>
+    </string-array>
+    <string-array name="review_7_2">
+        <item>ryan kido</item>
+        <item>Wahana bermain yg seru di kota Pekanbaru</item>
+    </string-array>
+    <string-array name="review_8_1">
+        <item>Yendri Ikhlas Fernando</item>
+        <item>Saya pernah kesini. Bagus untuk olahraga islami yakni berkuda dan memanah. Bisa kursys berkuda atau hanya tes naik.</item>
+    </string-array>
+    <string-array name="review_8_2">
+        <item>Siti Aisyah Rahmi</item>
+        <item>Tempat wisata olahraga sunnah terbaik..</item>
+    </string-array>
+    <string-array name="review_9_1">
+        <item>Ali Bakri</item>
+        <item>Tempat mancing bisa harian dan kiloan, cocok bawa keluarga sekaligus refresing</item>
+    </string-array>
+    <string-array name="review_9_2">
+        <item>Edi Mak Itam</item>
+        <item>Sungguh memanjakan mata.. Rugi tak datang..</item>
+    </string-array>
+    <string-array name="review_10_1">
+        <item>Risang Aji</item>
+        <item>bagus dan sangat nyaman</item>
+    </string-array>
+    <string-array name="review_10_2">
+        <item>Iqbal Suliansyah</item>
+        <item>Arsitekturnya menarik dan unik. Ini mesjid yang bersih dan nyaman juga.Tempatnya strategis dan halaman luas.</item>
+    </string-array>
+
+    <array name="review_1">
+        <item>@array/review_1_1</item>
+        <item>@array/review_1_2</item>
+    </array>
+    <array name="review_2">
+        <item>@array/review_2_1</item>
+        <item>@array/review_2_2</item>
+    </array>
+    <array name="review_3">
+        <item>@array/review_3_1</item>
+        <item>@array/review_3_2</item>
+    </array>
+    <array name="review_4">
+        <item>@array/review_4_1</item>
+        <item>@array/review_4_2</item>
+    </array>
+    <array name="review_5">
+        <item>@array/review_5_1</item>
+        <item>@array/review_5_2</item>
+    </array>
+    <array name="review_6">
+        <item>@array/review_6_1</item>
+        <item>@array/review_6_2</item>
+    </array>
+    <array name="review_7">
+        <item>@array/review_7_1</item>
+        <item>@array/review_7_2</item>
+    </array>
+    <array name="review_8">
+        <item>@array/review_8_1</item>
+        <item>@array/review_8_2</item>
+    </array>
+    <array name="review_9">
+        <item>@array/review_9_1</item>
+        <item>@array/review_9_2</item>
+    </array>
+    <array name="review_10">
+        <item>@array/review_10_1</item>
+        <item>@array/review_10_2</item>
+    </array>
+
+    <array name="data_review">
+        <item>@array/review_1</item>
+        <item>@array/review_2</item>
+        <item>@array/review_3</item>
+        <item>@array/review_4</item>
+        <item>@array/review_5</item>
+        <item>@array/review_6</item>
+        <item>@array/review_7</item>
+        <item>@array/review_8</item>
+        <item>@array/review_9</item>
+        <item>@array/review_10</item>
     </array>
 
     <!--Review bintang-->
-    <array name="data_bintang">
+    <string-array name="data_bintang">
         <item>4.5</item>
         <item>4.1</item>
         <item>4.1</item>
@@ -202,16 +274,16 @@
         <item>4.3</item>
         <item>4.5</item>
         <item>4.8</item>
-    </array>
+    </string-array>
 
     <!--Teks health -->
-    <string name="helath1">Cuci Tangan</string>
-    <string name="helath2">Ya Jaga Jarak</string>
-    <string name="helath3">Makan Vitamin</string>
+    <string name="health_1">Cuci Tangan</string>
+    <string name="health_2">Ya Jaga Jarak</string>
+    <string name="health_3">Makan Vitamin</string>
 
-    <string name="deskrpsi1">Untuk menghindari penularan penyakit melalui tangan. Untuk menjaga kebersihan diri (perorangan) Untuk membuat tubuh kita tetap sehat dan bugar. Supaya tidak menjadi agen penularan bibit penyakit kepada orang lain.</string>
-    <string name="deskrpsi2">Menjaga jarak atau physical distancing, sebagai bagian dari protokol kesehatan dalam upaya pencegahan penyebaran COVID-19 menjadi penting untuk dilakukan. Sebagaimana menurut rekomendasi dari Badan Kesehatan Dunia (WHO)</string>
-    <string name="deskrpsi3">Vitamin memiliki berbagai fungsi yang membantu mengatur metabolisme, mencegah penyakit kronis (seperti penyakit jantung dan kanker) dan untuk memelihara nafsu makan, kesehatan mental dan kekebalan tubuh.</string>
+    <string name="health_deskripsi_1">Untuk menghindari penularan penyakit melalui tangan. Untuk menjaga kebersihan diri (perorangan) Untuk membuat tubuh kita tetap sehat dan bugar. Supaya tidak menjadi agen penularan bibit penyakit kepada orang lain.</string>
+    <string name="health_deskripsi_2">Menjaga jarak atau physical distancing, sebagai bagian dari protokol kesehatan dalam upaya pencegahan penyebaran COVID-19 menjadi penting untuk dilakukan. Sebagaimana menurut rekomendasi dari Badan Kesehatan Dunia (WHO)</string>
+    <string name="health_deskripsi_3">Vitamin memiliki berbagai fungsi yang membantu mengatur metabolisme, mencegah penyakit kronis (seperti penyakit jantung dan kanker) dan untuk memelihara nafsu makan, kesehatan mental dan kekebalan tubuh.</string>
 
     <string name="detail_photo">Detail photo</string>
     <string name="star_review">Star review</string>

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class DetailReviewAdapter(private val reviewData: Array<Pair<String, String>>) :
+class DetailReviewAdapter(private val reviewData: List<Pair<String, String>>) :
     RecyclerView.Adapter<DetailReviewAdapter.ListViewHolder>() {
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
