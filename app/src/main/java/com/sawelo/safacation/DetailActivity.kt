@@ -6,13 +6,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.sawelo.safacation.databinding.ActivityDetailBinding
 import com.sawelo.safacation.utils.ResourcesValuePull
 import kotlin.math.roundToInt
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding: ActivityDetailBinding
     private lateinit var recyclerView: RecyclerView
+    private lateinit var mMap: GoogleMap
 
     private lateinit var namaLokasi: String
     private lateinit var alamatLokasi: String
@@ -61,6 +68,10 @@ class DetailActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@DetailActivity)
             adapter = DetailReviewAdapter(dataReviewResult)
         }
+
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.detail_map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
     }
 
     /**
@@ -72,6 +83,16 @@ class DetailActivity : AppCompatActivity() {
             return true
         }
         return false
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        mMap.uiSettings.isScrollGesturesEnabled = false
+
+        // Add a marker in Sydney and move the camera
+        val sydney = LatLng(0.535664, 101.443361)
+        mMap.addMarker(MarkerOptions().position(sydney).title(namaLokasi))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15F))
     }
 
     private fun getDataFromResource(detailExtraNama: String?) {

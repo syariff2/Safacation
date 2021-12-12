@@ -289,4 +289,6 @@
     <string name="star_review">Star review</string>
     <string name="jadwal_buka">Jadwal buka</string>
     <string name="dibuka">DIBUKA</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="test">Test</string>
 </resources>
