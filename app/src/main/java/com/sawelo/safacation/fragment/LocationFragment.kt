@@ -1,4 +1,4 @@
-package com.sawelo.safacation
+package com.sawelo.safacation.fragment
 
 import android.content.Intent
 import android.content.res.Configuration
@@ -10,6 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.sawelo.safacation.R
+import com.sawelo.safacation.activity.DetailActivity
+import com.sawelo.safacation.adapter.AdapterSafa
+import com.sawelo.safacation.data.DataSafa
 import com.sawelo.safacation.utils.ResourcesValuePull
 
 class LocationFragment : Fragment(), AdapterSafa.OnItemClickCallback {

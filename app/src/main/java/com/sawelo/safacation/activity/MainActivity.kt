@@ -1,10 +1,13 @@
-package com.sawelo.safacation
+package com.sawelo.safacation.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
+import com.sawelo.safacation.R
 import com.sawelo.safacation.databinding.ActivityMainBinding
+import com.sawelo.safacation.fragment.HealthFragment
+import com.sawelo.safacation.fragment.LocationFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

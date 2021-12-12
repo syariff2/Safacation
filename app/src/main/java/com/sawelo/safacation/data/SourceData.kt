@@ -1,7 +1,9 @@
-package com.sawelo.safacation
+package com.sawelo.safacation.data
+
+import com.sawelo.safacation.R
 
 
-object DetailSourceData {
+object SourceData {
     val nameLokasi = arrayOf(
         "Taman Kota Pekanbaru",
         "Taman Agrowisata Tenayan Raya",

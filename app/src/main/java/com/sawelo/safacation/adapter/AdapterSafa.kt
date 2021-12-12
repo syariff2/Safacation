@@ -1,4 +1,4 @@
-package com.sawelo.safacation
+package com.sawelo.safacation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.sawelo.safacation.R
+import com.sawelo.safacation.data.DataSafa
 
 class AdapterSafa(private val listSafa : List<DataSafa>) : RecyclerView.Adapter<AdapterSafa.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback

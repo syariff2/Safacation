@@ -1,10 +1,11 @@
-package com.sawelo.safacation
+package com.sawelo.safacation.adapter
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.sawelo.safacation.fragment.DetailPhotoFragment
 
 class DetailPhotoAdapter(
     fragmentManager: FragmentManager,

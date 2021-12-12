@@ -1,4 +1,4 @@
-package com.sawelo.safacation
+package com.sawelo.safacation.data
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

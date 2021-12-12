@@ -1,8 +1,8 @@
 package com.sawelo.safacation.utils
 
 import android.content.res.Resources
-import com.sawelo.safacation.DataSafa
 import com.sawelo.safacation.R
+import com.sawelo.safacation.data.DataSafa
 
 class ResourcesValuePull(private val resources: Resources) {
     fun getNamaLokasi(index: Int): String = resources.getStringArray(R.array.nama_lokasi)[index]

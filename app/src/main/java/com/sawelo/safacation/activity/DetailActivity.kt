@@ -1,4 +1,4 @@
-package com.sawelo.safacation
+package com.sawelo.safacation.activity
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -12,6 +12,16 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.libraries.places.api.Places
+import com.google.android.libraries.places.api.model.AutocompleteSessionToken
+import com.google.android.libraries.places.api.model.Place
+import com.google.android.libraries.places.api.net.FetchPlaceRequest
+import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest
+import com.sawelo.safacation.BuildConfig
+import com.sawelo.safacation.R
+import com.sawelo.safacation.adapter.DetailPhotoAdapter
+import com.sawelo.safacation.adapter.DetailReviewAdapter
+import com.sawelo.safacation.data.DataSafa
 import com.sawelo.safacation.databinding.ActivityDetailBinding
 import com.sawelo.safacation.utils.ResourcesValuePull
 import kotlin.math.roundToInt
@@ -28,6 +38,7 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var dataReviewResult: List<Pair<String, String>>
 
     private var dataBintang: Double = 0.0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,12 +98,31 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        mMap.uiSettings.isScrollGesturesEnabled = false
+        mMap.uiSettings.setAllGesturesEnabled(false)
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(0.535664, 101.443361)
-        mMap.addMarker(MarkerOptions().position(sydney).title(namaLokasi))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15F))
+        Places.initialize(applicationContext, BuildConfig.MAPS_API_KEY)
+        val placesClient = Places.createClient(this)
+        val token = AutocompleteSessionToken.newInstance()
+        val request = FindAutocompletePredictionsRequest.builder().apply {
+            sessionToken = token
+            query = namaLokasi
+        }.build()
+        placesClient.findAutocompletePredictions(request)
+            .addOnSuccessListener { predictionResponse ->
+                val prediction = predictionResponse.autocompletePredictions[0]
+                val placeId = prediction.placeId
+                val placeFields = listOf(Place.Field.LAT_LNG)
+                val detailRequest = FetchPlaceRequest.newInstance(placeId, placeFields)
+                placesClient.fetchPlace(detailRequest)
+                    .addOnSuccessListener { placeResponse ->
+                        val latLng = placeResponse.place.latLng ?: LatLng(0.0,0.0)
+                        mMap.addMarker(MarkerOptions()
+                            .position(latLng)
+                            .title(namaLokasi)
+                            .alpha(0.7F))
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15F))
+                    }
+            }
     }
 
     private fun getDataFromResource(detailExtraNama: String?) {
