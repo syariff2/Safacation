@@ -14,7 +14,7 @@ import com.sawelo.safacation.R
 import com.sawelo.safacation.activity.DetailActivity
 import com.sawelo.safacation.adapter.AdapterSafa
 import com.sawelo.safacation.data.DataSafa
-import com.sawelo.safacation.utils.ResourcesValuePull
+import com.sawelo.safacation.data.SourceData
 
 class LocationFragment : Fragment(), AdapterSafa.OnItemClickCallback {
 
@@ -48,8 +48,18 @@ class LocationFragment : Fragment(), AdapterSafa.OnItemClickCallback {
         } else {
             rvLocation.layoutManager = LinearLayoutManager(requireContext())
         }
-        val resourcesValue = ResourcesValuePull(resources)
-        val locationAdapter = AdapterSafa(resourcesValue.getAllDataSafa())
+
+        val dataSafa = mutableListOf<DataSafa>()
+        for (i in SourceData.nameLokasi.indices) {
+            dataSafa.add(DataSafa(
+                SourceData.nameLokasi[i],
+                SourceData.alamat[i],
+                SourceData.gambarLokasi[i][0],
+                SourceData.deskripsi[i]
+            ))
+        }
+
+        val locationAdapter = AdapterSafa(dataSafa)
         locationAdapter.setOnItemClickCallback(this)
         rvLocation.adapter = locationAdapter
     }

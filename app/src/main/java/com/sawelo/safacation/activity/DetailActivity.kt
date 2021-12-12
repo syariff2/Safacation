@@ -22,8 +22,8 @@ import com.sawelo.safacation.R
 import com.sawelo.safacation.adapter.DetailPhotoAdapter
 import com.sawelo.safacation.adapter.DetailReviewAdapter
 import com.sawelo.safacation.data.DataSafa
+import com.sawelo.safacation.data.SourceData
 import com.sawelo.safacation.databinding.ActivityDetailBinding
-import com.sawelo.safacation.utils.ResourcesValuePull
 import kotlin.math.roundToInt
 
 class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -34,8 +34,8 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var namaLokasi: String
     private lateinit var alamatLokasi: String
     private lateinit var jadwalBuka: String
-    private lateinit var dataPosterResult: List<Int>
-    private lateinit var dataReviewResult: List<Pair<String, String>>
+    private lateinit var dataPoster: List<Int>
+    private lateinit var dataReview: List<Pair<String, String>>
 
     private var dataBintang: Double = 0.0
 
@@ -69,7 +69,7 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
             else -> R.drawable.star_review_0_5
         }
 
-        setDetailPhoto(dataPosterResult)
+        setDetailPhoto(dataPoster)
         binding.detailNamaLokasi.text = namaLokasi
         binding.detailAlamat.text = alamatLokasi
         binding.detailJadwalBuka.text = jadwalBuka
@@ -77,7 +77,7 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
         binding.detailRecyclerView.apply {
             layoutManager = LinearLayoutManager(this@DetailActivity)
-            adapter = DetailReviewAdapter(dataReviewResult)
+            adapter = DetailReviewAdapter(dataReview)
         }
 
         val mapFragment = supportFragmentManager
@@ -128,17 +128,15 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun getDataFromResource(detailExtraNama: String?) {
         val dataPositionInResource =
             if (detailExtraNama != null) {
-                resources.getStringArray(R.array.nama_lokasi).indexOf(detailExtraNama)
+                SourceData.nameLokasi.indexOf(detailExtraNama)
             } else 0
 
-        val resourcesValue = ResourcesValuePull(resources)
-
-        namaLokasi = resourcesValue.getNamaLokasi(dataPositionInResource)
-        alamatLokasi = resourcesValue.getAlamatLokasi(dataPositionInResource)
-        jadwalBuka = resourcesValue.getJadwalBuka(dataPositionInResource)
-        dataBintang = resourcesValue.getDataBintang(dataPositionInResource)
-        dataReviewResult = resourcesValue.getDataReview(dataPositionInResource)
-        dataPosterResult = resourcesValue.getDataPoster(dataPositionInResource)
+        namaLokasi = SourceData.nameLokasi[dataPositionInResource]
+        alamatLokasi = SourceData.alamat[dataPositionInResource]
+        jadwalBuka = SourceData.jadwalBuka[dataPositionInResource]
+        dataBintang = SourceData.bintang[dataPositionInResource]
+        dataReview = SourceData.dataReview[dataPositionInResource]
+        dataPoster = SourceData.gambarLokasi[dataPositionInResource]
     }
 
     private fun setDetailPhoto(dataGambar: List<Int>) {
