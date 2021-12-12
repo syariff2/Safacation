@@ -3,6 +3,7 @@ package com.sawelo.safacation.activity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -17,6 +18,7 @@ import com.google.android.libraries.places.api.model.AutocompleteSessionToken
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.api.net.FetchPlaceRequest
 import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest
+import com.google.android.material.snackbar.Snackbar
 import com.sawelo.safacation.BuildConfig
 import com.sawelo.safacation.R
 import com.sawelo.safacation.adapter.DetailPhotoAdapter
@@ -107,21 +109,30 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
             sessionToken = token
             query = namaLokasi
         }.build()
+
         placesClient.findAutocompletePredictions(request)
             .addOnSuccessListener { predictionResponse ->
                 val prediction = predictionResponse.autocompletePredictions[0]
                 val placeId = prediction.placeId
                 val placeFields = listOf(Place.Field.LAT_LNG)
                 val detailRequest = FetchPlaceRequest.newInstance(placeId, placeFields)
+
                 placesClient.fetchPlace(detailRequest)
                     .addOnSuccessListener { placeResponse ->
-                        val latLng = placeResponse.place.latLng ?: LatLng(0.0,0.0)
-                        mMap.addMarker(MarkerOptions()
-                            .position(latLng)
-                            .title(namaLokasi)
-                            .alpha(0.7F))
+                        val latLng = placeResponse.place.latLng ?: LatLng(0.0, 0.0)
+                        mMap.addMarker(
+                            MarkerOptions()
+                                .position(latLng)
+                                .title(namaLokasi)
+                                .alpha(0.7F)
+                        )
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15F))
                     }
+            }
+            .addOnFailureListener {
+                binding.detailMap.isVisible = false
+                Snackbar.make(binding.detailScrollView, "Failed to open map", Snackbar.LENGTH_SHORT)
+                    .show()
             }
     }
 
