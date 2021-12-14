@@ -14,7 +14,7 @@ data class DataSafa(
     val jadwalBuka: String,
     val bintang: Double,
     var gambar: List<String>,
-    val review: List<ReviewLokasi>
+    var review: MutableList<ReviewLokasi>
 )
 
 data class ReviewLokasi(

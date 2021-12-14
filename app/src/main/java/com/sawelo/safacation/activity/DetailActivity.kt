@@ -22,6 +22,7 @@ import com.sawelo.safacation.SafaApplication
 import com.sawelo.safacation.adapter.DetailPhotoAdapter
 import com.sawelo.safacation.adapter.DetailReviewAdapter
 import com.sawelo.safacation.data.DataSafa
+import com.sawelo.safacation.data.room.DataSafaDao
 import com.sawelo.safacation.databinding.ActivityDetailBinding
 import com.sawelo.safacation.viewmodel.DetailViewModel
 import kotlin.math.roundToInt
@@ -30,6 +31,7 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding: ActivityDetailBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var mMap: GoogleMap
+    private lateinit var dao: DataSafaDao
 
     private val detailViewModel: DetailViewModel by viewModels()
 
@@ -40,6 +42,7 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        dao = SafaApplication.databaseInstance.DataSafaDao()
         recyclerView = findViewById(R.id.detail_recycler_view)
         recyclerView.setHasFixedSize(true)
 
@@ -69,13 +72,22 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
         mMap.uiSettings.setAllGesturesEnabled(false)
 
-        detailViewModel.findPlace() { onFailure ->
+        /**
+         * Mencari lokasi dalam database Google API
+         * Jika pencaharian gagal maka akan tampil Snackbar sebagai info
+         */
+        detailViewModel.findPlace { onFailure ->
             binding.detailMap.isVisible = false
             Log.e(DetailViewModel.TAG, "findPlaceFails: $onFailure")
-            Snackbar.make(binding.detailScrollView, "Failed to open map", Snackbar.LENGTH_SHORT)
+            Snackbar.make(binding.detailScrollView, "Failed to connect with Google Maps", Snackbar.LENGTH_SHORT)
                 .show()
         }
 
+        /**
+         * Mengawasi koordinat dari lokasi yang sudah dicari
+         * Jika berubah maka tambah marker/penanda dalam peta
+         * dan posisikan kamera peta sesuai lokasi
+         */
         detailViewModel.placeCoordinate.observe(this, { latLng ->
             mMap.addMarker(
                 MarkerOptions()
@@ -105,7 +117,6 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
         detailViewModel.setNamaLokasi(namaLokasi)
         val dataSafa: LiveData<DataSafa> = Transformations.switchMap(detailViewModel.namaLokasi) {
-            val dao = SafaApplication.databaseInstance.DataSafaDao()
             dao.getLokasi(it)
         }
 
@@ -120,7 +131,22 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
                 layoutManager = LinearLayoutManager(this@DetailActivity)
                 adapter = DetailReviewAdapter(it.review)
             }
+        })
 
+        /**
+         * Mengawasi nilai id lokasi dari Google API
+         * Jika berubah maka tambahkan daftar review dalam database
+         */
+        detailViewModel.idLokasi.observe(this, { idLokasi ->
+            detailViewModel.getReview(idLokasi) {
+                val tempDataSafa = dataSafa.value
+                if (tempDataSafa != null) {
+                    tempDataSafa.review.addAll(it)
+                    SafaApplication.executorService.execute {
+                        dao.insertAll(tempDataSafa)
+                    }
+                }
+            }
         })
 
         detailViewModel.isLoading.observe(this, {
