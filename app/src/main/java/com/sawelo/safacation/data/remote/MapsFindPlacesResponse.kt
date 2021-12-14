@@ -1,8 +1,8 @@
-package com.sawelo.safacation.data
+package com.sawelo.safacation.data.remote
 
 import com.google.gson.annotations.SerializedName
 
-data class MapsFindPlaceResponse(
+data class MapsFindPlacesResponse(
 
 	@field:SerializedName("candidates")
 	val candidates: List<CandidatesItem>? = null,
@@ -11,13 +11,10 @@ data class MapsFindPlaceResponse(
 data class CandidatesItem(
 
 	@field:SerializedName("geometry")
-	val geometry: Geometry
-)
+	val geometry: Geometry,
 
-data class Geometry(
-
-	@field:SerializedName("location")
-	val location: Location
+	@field:SerializedName("place_id")
+	val placeId: String
 )
 
 data class Location(
@@ -27,4 +24,9 @@ data class Location(
 
 	@field:SerializedName("lat")
 	val lat: Double
+)
+
+data class Geometry(
+	@field:SerializedName("location")
+	val location: Location
 )
