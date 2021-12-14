@@ -1,0 +1,70 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "fd664a5c70880760b833874ce4fc4037",
+    "entities": [
+      {
+        "tableName": "DataSafa",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nama` TEXT NOT NULL, `alamat` TEXT NOT NULL, `deskripsi` TEXT NOT NULL, `jadwalBuka` TEXT NOT NULL, `bintang` REAL NOT NULL, `gambar` TEXT NOT NULL, `review` TEXT NOT NULL, PRIMARY KEY(`nama`))",
+        "fields": [
+          {
+            "fieldPath": "nama",
+            "columnName": "nama",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "alamat",
+            "columnName": "alamat",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deskripsi",
+            "columnName": "deskripsi",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "jadwalBuka",
+            "columnName": "jadwalBuka",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bintang",
+            "columnName": "bintang",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gambar",
+            "columnName": "gambar",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "review",
+            "columnName": "review",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "nama"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fd664a5c70880760b833874ce4fc4037')"
+    ]
+  }
+}
