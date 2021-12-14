@@ -50,79 +50,80 @@
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
-                android:layout_height="wrap_content"
                 android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/detail_photo_pager">
 
                 <TextView
-                    style="@style/TextAppearance.MaterialComponents.Overline"
                     android:id="@+id/detail_status"
-                    android:layout_height="wrap_content"
+                    style="@style/TextAppearance.MaterialComponents.Overline"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/dibuka"
                     android:textSize="16sp" />
 
                 <TextView
-                    style="@style/TextAppearance.MaterialComponents.Subtitle2"
                     android:id="@+id/detail_nama_lokasi"
-                    android:layout_height="wrap_content"
+                    style="@style/TextAppearance.MaterialComponents.Subtitle2"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:textColor="@color/black"
                     android:textSize="36sp"
                     tools:text="Nama Lokasi" />
 
                 <ImageView
-                    android:contentDescription="@string/star_review"
                     android:id="@+id/detail_bintang"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="5dp"
-                    android:layout_width="wrap_content"
+                    android:contentDescription="@string/star_review"
                     android:src="@drawable/star_review_0_5" />
 
                 <TextView
                     android:id="@+id/detail_alamat"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="8dp"
-                    android:layout_width="wrap_content"
                     android:textSize="18sp"
                     tools:text="Alamat Lokasi" />
 
                 <TextView
                     style="@style/TextAppearance.MaterialComponents.Body2"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/jadwal_buka"
                     android:textSize="18sp" />
 
                 <TextView
-                    style="@style/TextAppearance.MaterialComponents.Subtitle2"
                     android:id="@+id/detail_jadwal_buka"
-                    android:layout_height="wrap_content"
+                    style="@style/TextAppearance.MaterialComponents.Subtitle2"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:textSize="18sp"
                     tools:text="Setiap hari (08:00-00:00)" />
 
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/detail_map"
-                    android:layout_height="200dp"
-                    android:layout_marginTop="20dp"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
                     android:layout_width="match_parent"
-                    android:name="com.google.android.gms.maps.SupportMapFragment" />
+                    android:layout_height="200dp"
+                    android:layout_marginTop="20dp" />
 
                 <View
-                    android:background="?android:attr/listDivider"
+                    android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginVertical="20dp"
-                    android:layout_width="match_parent" />
+                    android:background="?android:attr/listDivider" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/detail_recycler_view"
-                    android:layout_height="wrap_content"
                     android:layout_width="match_parent"
+                    android:layout_height="300dp"
                     tools:listitem="@layout/list_detail_review" />
 
             </LinearLayout>
