@@ -50,7 +50,7 @@ class LocationFragment : Fragment(), AdapterSafa.OnItemClickCallback {
             rvLocation.layoutManager = LinearLayoutManager(requireContext())
         }
 
-        mainViewModel.dataSafa.observe(this, {
+        mainViewModel.dataSafa?.observe(this, {
             val locationAdapter = AdapterSafa(it)
             locationAdapter.setOnItemClickCallback(this)
             rvLocation.adapter = locationAdapter

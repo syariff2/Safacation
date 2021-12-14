@@ -6,6 +6,6 @@ import com.sawelo.safacation.SafaApplication.Companion.databaseInstance
 import com.sawelo.safacation.data.DataSafa
 
 class MainViewModel: ViewModel() {
-    private val dao = databaseInstance.DataSafaDao()
-    val dataSafa: LiveData<List<DataSafa>> = dao.getAll()
+    private val dao = databaseInstance?.DataSafaDao()
+    val dataSafa: LiveData<List<DataSafa>>? = dao?.getAll()
 }

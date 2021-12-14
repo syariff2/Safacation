@@ -19,26 +19,28 @@ class SafaApplication : Application() {
 
         val databaseCallback = object : RoomDatabase.Callback() {
             override fun onCreate(db: SupportSQLiteDatabase) {
-                executorService.execute {
+                executorService?.execute {
                     val jsonString =
                         JsonUtils.getJsonFromAssets(this@SafaApplication, "source_data.json")
                     val dataSafaList = Gson().fromJson(jsonString, ListDataSafa::class.java).lokasi
 
-                    databaseInstance.DataSafaDao().insertAll(*dataSafaList.toTypedArray())
+                    databaseInstance?.DataSafaDao()?.insertAll(*dataSafaList.toTypedArray())
                 }
             }
         }
 
-        databaseInstance = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "database"
-        )
-            .addCallback(databaseCallback)
-            .build()
+        if (databaseInstance == null) {
+            databaseInstance = Room.databaseBuilder(
+                applicationContext,
+                AppDatabase::class.java, "database"
+            )
+                .addCallback(databaseCallback)
+                .build()
+        }
     }
 
     companion object {
-        lateinit var executorService: ExecutorService
-        lateinit var databaseInstance: AppDatabase
+        var executorService: ExecutorService? = null
+        var databaseInstance: AppDatabase? = null
     }
 }

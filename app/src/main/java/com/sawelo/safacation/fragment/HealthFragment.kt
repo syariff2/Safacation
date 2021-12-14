@@ -14,8 +14,4 @@ class HealthFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_health, container, false)
     }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
 }

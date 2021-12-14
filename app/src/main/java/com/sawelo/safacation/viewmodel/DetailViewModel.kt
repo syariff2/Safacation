@@ -29,61 +29,63 @@ class DetailViewModel : ViewModel() {
         _namaLokasi.value = namaLokasi
     }
 
-    fun getReview(idLokasi: String, result: (review: List<ReviewLokasi>) -> Unit) {
+    fun getReview(idLokasi: String?, result: (review: List<ReviewLokasi>) -> Unit) {
         _isLoading.value = true
 
-        println("USHFUSHF $idLokasi")
-
-        val client = MapsApiConfig.getApiService().getDetails(idLokasi, "review", API_KEY)
-        client.enqueue(object : Callback<MapsDetailsReviewResponse> {
-            override fun onResponse(
-                call: Call<MapsDetailsReviewResponse>,
-                response: Response<MapsDetailsReviewResponse>
-            ) {
-                _isLoading.value = false
-                if (response.isSuccessful) {
-                    val reviews = response.body()?.result?.reviews
-                    val reviewLokasi = reviews?.map {
-                        ReviewLokasi(it.authorName, it.text)
+        if (idLokasi != null) {
+            val client = MapsApiConfig.getApiService().getDetails(idLokasi, "review", API_KEY)
+            client.enqueue(object : Callback<MapsDetailsReviewResponse> {
+                override fun onResponse(
+                    call: Call<MapsDetailsReviewResponse>,
+                    response: Response<MapsDetailsReviewResponse>
+                ) {
+                    _isLoading.value = false
+                    if (response.isSuccessful) {
+                        val reviews = response.body()?.result?.reviews
+                        val reviewLokasi = reviews?.map {
+                            ReviewLokasi(it.authorName, it.text)
+                        }
+                        reviewLokasi?.let {result.invoke(it)}
                     }
-                    reviewLokasi?.let {result.invoke(it)}
                 }
-            }
 
-            override fun onFailure(call: Call<MapsDetailsReviewResponse>, t: Throwable) {
-                _isLoading.value = false
-            }
-        })
+                override fun onFailure(call: Call<MapsDetailsReviewResponse>, t: Throwable) {
+                    _isLoading.value = false
+                }
+            })
+        }
     }
 
     fun findPlace(onFailure: (message: String) -> Unit) {
         _isLoading.value = true
-        val nama = namaLokasi.value ?: "Taman Kota Pekanbaru"
-        val client = MapsApiConfig.getApiService().findPlaceFromText(nama, "place_id,geometry", API_KEY)
-        client.enqueue(object : Callback<MapsFindPlacesResponse> {
-            override fun onResponse(
-                call: Call<MapsFindPlacesResponse>,
-                response: Response<MapsFindPlacesResponse>
-            ) {
-                _isLoading.value = false
-                if (response.isSuccessful) {
-                    val candidates = response.body()?.candidates
-                    if (!candidates.isNullOrEmpty()) {
-                        println("EFUHEF $candidates")
-                        val location = candidates[0].geometry.location
-                        _placeCoordinate.value = LatLng(location.lat, location.lng)
-                        _idLokasi.value = candidates[0].placeId
+        val nama = namaLokasi.value
+        if (nama != null) {
+            val client = MapsApiConfig.getApiService().findPlaceFromText(nama, "place_id,geometry", API_KEY)
+            client.enqueue(object : Callback<MapsFindPlacesResponse> {
+                override fun onResponse(
+                    call: Call<MapsFindPlacesResponse>,
+                    response: Response<MapsFindPlacesResponse>
+                ) {
+                    _isLoading.value = false
+                    if (response.isSuccessful) {
+                        val candidates = response.body()?.candidates
+                        if (!candidates.isNullOrEmpty()) {
+                            println("EFUHEF $candidates")
+                            val location = candidates[0].geometry.location
+                            _placeCoordinate.value = LatLng(location.lat, location.lng)
+                            _idLokasi.value = candidates[0].placeId
+                        }
+                    } else {
+                        onFailure.invoke(response.message())
                     }
-                } else {
-                    onFailure.invoke(response.message())
                 }
-            }
 
-            override fun onFailure(call: Call<MapsFindPlacesResponse>, t: Throwable) {
-                _isLoading.value = false
-                onFailure.invoke(t.message.toString())
-            }
-        })
+                override fun onFailure(call: Call<MapsFindPlacesResponse>, t: Throwable) {
+                    _isLoading.value = false
+                    onFailure.invoke(t.message.toString())
+                }
+            })
+        }
     }
 
     companion object {

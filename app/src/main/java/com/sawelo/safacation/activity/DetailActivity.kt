@@ -31,8 +31,8 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding: ActivityDetailBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var mMap: GoogleMap
-    private lateinit var dao: DataSafaDao
 
+    private var dao: DataSafaDao? = null
     private val detailViewModel: DetailViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +42,7 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        dao = SafaApplication.databaseInstance.DataSafaDao()
+        dao = SafaApplication.databaseInstance?.DataSafaDao()
         recyclerView = findViewById(R.id.detail_recycler_view)
         recyclerView.setHasFixedSize(true)
 
@@ -117,7 +117,7 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
 
         detailViewModel.setNamaLokasi(namaLokasi)
         val dataSafa: LiveData<DataSafa> = Transformations.switchMap(detailViewModel.namaLokasi) {
-            dao.getLokasi(it)
+            dao?.getLokasi(it)
         }
 
         dataSafa.observe(this, {
@@ -142,8 +142,8 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
                 val tempDataSafa = dataSafa.value
                 if (tempDataSafa != null) {
                     tempDataSafa.review.addAll(it)
-                    SafaApplication.executorService.execute {
-                        dao.insertAll(tempDataSafa)
+                    SafaApplication.executorService?.execute {
+                        dao?.insertAll(tempDataSafa)
                     }
                 }
             }
