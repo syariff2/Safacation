@@ -1,9 +1,13 @@
 package com.sawelo.safacation.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -11,21 +15,15 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.libraries.places.api.Places
-import com.google.android.libraries.places.api.model.AutocompleteSessionToken
-import com.google.android.libraries.places.api.model.Place
-import com.google.android.libraries.places.api.net.FetchPlaceRequest
-import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRequest
 import com.google.android.material.snackbar.Snackbar
-import com.sawelo.safacation.BuildConfig
 import com.sawelo.safacation.R
+import com.sawelo.safacation.SafaApplication
 import com.sawelo.safacation.adapter.DetailPhotoAdapter
 import com.sawelo.safacation.adapter.DetailReviewAdapter
 import com.sawelo.safacation.data.DataSafa
-import com.sawelo.safacation.data.SourceData
 import com.sawelo.safacation.databinding.ActivityDetailBinding
+import com.sawelo.safacation.viewmodel.DetailViewModel
 import kotlin.math.roundToInt
 
 class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -33,14 +31,7 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var recyclerView: RecyclerView
     private lateinit var mMap: GoogleMap
 
-    private lateinit var namaLokasi: String
-    private lateinit var alamatLokasi: String
-    private lateinit var jadwalBuka: String
-    private lateinit var dataPoster: List<Int>
-    private lateinit var dataReview: List<Pair<String, String>>
-
-    private var dataBintang: Double = 0.0
-
+    private val detailViewModel: DetailViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,34 +43,10 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
         recyclerView = findViewById(R.id.detail_recycler_view)
         recyclerView.setHasFixedSize(true)
 
-        val detailExtra = intent.extras?.getParcelable<DataSafa>(DETAIL_EXTRA)
-        val detailExtraNama = detailExtra?.namaLokasi
+        val detailExtra = intent.extras?.getString(DETAIL_EXTRA)
 
-        getDataFromResource(detailExtraNama)
-
-        val gambarBintang = when (dataBintang.mRound(0.5)) {
-            0.5 -> R.drawable.star_review_0_5
-            1.0 -> R.drawable.star_review_1_0
-            1.5 -> R.drawable.star_review_1_5
-            2.0 -> R.drawable.star_review_2_0
-            2.5 -> R.drawable.star_review_2_5
-            3.0 -> R.drawable.star_review_3_0
-            3.5 -> R.drawable.star_review_3_5
-            4.0 -> R.drawable.star_review_4_0
-            4.5 -> R.drawable.star_review_4_5
-            5.0 -> R.drawable.star_review_5_0
-            else -> R.drawable.star_review_0_5
-        }
-
-        setDetailPhoto(dataPoster)
-        binding.detailNamaLokasi.text = namaLokasi
-        binding.detailAlamat.text = alamatLokasi
-        binding.detailJadwalBuka.text = jadwalBuka
-        binding.detailBintang.setImageResource(gambarBintang)
-
-        binding.detailRecyclerView.apply {
-            layoutManager = LinearLayoutManager(this@DetailActivity)
-            adapter = DetailReviewAdapter(dataReview)
+        if (detailExtra != null) {
+            setInformation(detailExtra)
         }
 
         val mapFragment = supportFragmentManager
@@ -102,57 +69,76 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
         mMap.uiSettings.setAllGesturesEnabled(false)
 
-        Places.initialize(applicationContext, BuildConfig.MAPS_API_KEY)
-        val placesClient = Places.createClient(this)
-        val token = AutocompleteSessionToken.newInstance()
-        val request = FindAutocompletePredictionsRequest.builder().apply {
-            sessionToken = token
-            query = namaLokasi
-        }.build()
+        detailViewModel.findPlace() { onFailure ->
+            binding.detailMap.isVisible = false
+            Log.e(DetailViewModel.TAG, "findPlaceFails: $onFailure")
+            Snackbar.make(binding.detailScrollView, "Failed to open map", Snackbar.LENGTH_SHORT)
+                .show()
+        }
 
-        placesClient.findAutocompletePredictions(request)
-            .addOnSuccessListener { predictionResponse ->
-                val prediction = predictionResponse.autocompletePredictions[0]
-                val placeId = prediction.placeId
-                val placeFields = listOf(Place.Field.LAT_LNG)
-                val detailRequest = FetchPlaceRequest.newInstance(placeId, placeFields)
-
-                placesClient.fetchPlace(detailRequest)
-                    .addOnSuccessListener { placeResponse ->
-                        val latLng = placeResponse.place.latLng ?: LatLng(0.0, 0.0)
-                        mMap.addMarker(
-                            MarkerOptions()
-                                .position(latLng)
-                                .title(namaLokasi)
-                                .alpha(0.7F)
-                        )
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15F))
-                    }
-            }
-            .addOnFailureListener {
-                binding.detailMap.isVisible = false
-                Snackbar.make(binding.detailScrollView, "Failed to open map", Snackbar.LENGTH_SHORT)
-                    .show()
-            }
+        detailViewModel.placeCoordinate.observe(this, { latLng ->
+            mMap.addMarker(
+                MarkerOptions()
+                    .position(latLng)
+                    .title(detailViewModel.namaLokasi.value)
+                    .alpha(0.7F)
+            )
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15F))
+        })
     }
 
-    private fun getDataFromResource(detailExtraNama: String?) {
-        val dataPositionInResource =
-            if (detailExtraNama != null) {
-                SourceData.nameLokasi.indexOf(detailExtraNama)
-            } else 0
+    private fun setInformation(namaLokasi: String) {
 
-        namaLokasi = SourceData.nameLokasi[dataPositionInResource]
-        alamatLokasi = SourceData.alamat[dataPositionInResource]
-        jadwalBuka = SourceData.jadwalBuka[dataPositionInResource]
-        dataBintang = SourceData.bintang[dataPositionInResource]
-        dataReview = SourceData.dataReview[dataPositionInResource]
-        dataPoster = SourceData.gambarLokasi[dataPositionInResource]
+        fun gambarBintang(double: Double) = when (double.mRound(0.5)) {
+            0.5 -> R.drawable.star_review_0_5
+            1.0 -> R.drawable.star_review_1_0
+            1.5 -> R.drawable.star_review_1_5
+            2.0 -> R.drawable.star_review_2_0
+            2.5 -> R.drawable.star_review_2_5
+            3.0 -> R.drawable.star_review_3_0
+            3.5 -> R.drawable.star_review_3_5
+            4.0 -> R.drawable.star_review_4_0
+            4.5 -> R.drawable.star_review_4_5
+            5.0 -> R.drawable.star_review_5_0
+            else -> R.drawable.star_review_0_5
+        }
+
+        detailViewModel.setNamaLokasi(namaLokasi)
+        val dataSafa: LiveData<DataSafa> = Transformations.switchMap(detailViewModel.namaLokasi) {
+            val dao = SafaApplication.databaseInstance.DataSafaDao()
+            dao.getLokasi(it)
+        }
+
+        dataSafa.observe(this, {
+            setDetailPhoto(it.gambar)
+            binding.detailNamaLokasi.text = it.nama
+            binding.detailAlamat.text = it.alamat
+            binding.detailJadwalBuka.text = it.jadwalBuka
+            binding.detailBintang.setImageResource(gambarBintang(it.bintang))
+
+            binding.detailRecyclerView.apply {
+                layoutManager = LinearLayoutManager(this@DetailActivity)
+                adapter = DetailReviewAdapter(it.review)
+            }
+
+        })
+
+        detailViewModel.isLoading.observe(this, {
+            binding.detailLoading.isVisible = it
+        })
     }
 
-    private fun setDetailPhoto(dataGambar: List<Int>) {
+    private fun setDetailPhoto(dataGambar: List<String>?) {
+        val daftarGambar = mutableListOf<Int>()
+        dataGambar?.forEach {
+            val resId = resources.getIdentifier(
+                it, "drawable", packageName
+            )
+            daftarGambar.add(resId)
+        }
+
         binding.detailPhotoPager.adapter = DetailPhotoAdapter(
-            supportFragmentManager, lifecycle, dataGambar,
+            supportFragmentManager, lifecycle, daftarGambar,
         )
 
         val initialPhotoPosition = "1 / ${DetailPhotoAdapter.ITEM_COUNT}"

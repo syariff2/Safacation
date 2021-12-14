@@ -102,12 +102,26 @@
                 android:textSize="18sp"
                 tools:text="Setiap hari (08:00-00:00)" />
 
-            <androidx.fragment.app.FragmentContainerView
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:id="@+id/detail_map"
-                android:name="com.google.android.gms.maps.SupportMapFragment"
-                android:layout_marginTop="20dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/detail_map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+                <ProgressBar
+                    android:id="@+id/detail_loading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+
+            </FrameLayout>
+
+
 
             <View
                 android:layout_marginVertical="20dp"

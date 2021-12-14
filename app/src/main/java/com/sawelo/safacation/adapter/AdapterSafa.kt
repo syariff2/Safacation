@@ -9,27 +9,37 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sawelo.safacation.R
 import com.sawelo.safacation.data.DataSafa
 
-class AdapterSafa(private val listSafa : List<DataSafa>) : RecyclerView.Adapter<AdapterSafa.ListViewHolder>() {
+class AdapterSafa(private val listSafa: List<DataSafa>) :
+    RecyclerView.Adapter<AdapterSafa.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ListViewHolder {
-        val view: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.list_location, viewGroup, false)
+    override fun onCreateViewHolder(
+        viewGroup: ViewGroup,
+        i: Int
+    ): ListViewHolder {
+        val view: View =
+            LayoutInflater.from(viewGroup.context).inflate(R.layout.list_location, viewGroup, false)
         return ListViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val (namaLokasi, alamat, poster, deskripsi ) = listSafa [position]
-        holder.dataname.text = namaLokasi
-        holder.dataaddress.text = alamat
-        holder.dataposter.setImageResource(poster)
-        holder.datadeskripsi.text = deskripsi
+        fun gambarResId(name: String): Int {
+            val view = holder.itemView
+            return view.resources.getIdentifier(name, "drawable", view.context.packageName)
+        }
+
+        val dataSafa = listSafa[position]
+        holder.dataname.text = dataSafa.nama
+        holder.dataaddress.text = dataSafa.alamat
+        holder.dataposter.setImageResource(gambarResId(dataSafa.gambar[0]))
+        holder.datadeskripsi.text = dataSafa.deskripsi
 
         holder.itemView.setOnClickListener {
-            onItemClickCallback.onItemClicked(listSafa[holder.adapterPosition])
+            onItemClickCallback.onItemClicked(dataSafa.nama)
         }
     }
 
@@ -43,6 +53,6 @@ class AdapterSafa(private val listSafa : List<DataSafa>) : RecyclerView.Adapter<
     }
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: DataSafa)
+        fun onItemClicked(namaLokasi: String)
     }
 }

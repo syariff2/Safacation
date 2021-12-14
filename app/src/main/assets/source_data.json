@@ -1,0 +1,224 @@
+{
+  "lokasi": [
+    {
+      "nama": "Taman Kota Pekanbaru",
+      "alamat": "Kp.Bandar, Kec. Senapelan, Kota Pekanbaru, Riau",
+      "deskripsi": "Taman Kota yang letaknya tepat berada di Samping Hotel Aryaduta Kota Pekanbaru ini selalu ramai dikunjungi warga, terutama saat liburan.",
+      "jadwal_buka": "Every Day (08.00–00.00)",
+      "review": [
+        {
+          "nama_reviewer": "Susilo Atmaji",
+          "konten_reviewer": "Tempat Rehat sejenak sebelum melanjutkan perjalanan"
+        },
+        {
+          "nama_reviewer": "Guntur yudha Prawira",
+          "konten_reviewer": "Tempat santai dan bermain dengan anak"
+        }
+      ],
+      "gambar": [
+        "tamankota",
+        "tamankota1",
+        "tamankota2"
+      ],
+      "bintang": 4.5
+    },
+    {
+      "nama": "Taman Agrowisata Tenayan Raya",
+      "alamat": "Jl. Kadiran, Kulim, Kec. Tenayan Raya, Kota Pekanbaru, Riau",
+      "deskripsi": "Agrowisata Tenayan Raya ini letaknya tidak terlalu jauh dari pusat kota Pekanbaru. Berada di Jalan Kadiran, Kelurahan Sialang Rampai, Kecamatan Tenayan Raya, Kota Pekanbaru, agrowisata ini telah berdiri sejak tahun 2013 ",
+      "jadwal_buka": "Every Day (08.00–18.00)",
+      "review": [
+        {
+          "nama_reviewer": "MD chanel24",
+          "konten_reviewer": "Cocok buat anak-anak dan keluarga tercinta edukasi tentang alam"
+        },
+        {
+          "nama_reviewer": "huda anshori",
+          "konten_reviewer": "Bagus dalam pengembangan Edukasi bagi Anak dan keluarga"
+        }
+      ],
+      "gambar": [
+        "tamanagrowisata",
+        "tamanagrowisata1",
+        "tamanagrowisata2"
+      ],
+      "bintang": 4.1
+    },
+    {
+      "nama": "Taman Rekreasi Alam Mayang",
+      "alamat": "Jl. Imam Munandar taman rekreasi alamayang No.depan, Tengkerang Tim., Kec. Tenayan Raya, Kota Pekanbaru, Riau",
+      "deskripsi": "Wisata Alam Mayang Pekanbaru merupakan salah satu wisata rekreasi andalan milik Kota Pekanbaru. Sama seperti Kebun Raya Bogor dan taman bermain lainnya, wisata Alam Mayang ini selalu ramai dikunjungi saat akhir pekan atau saat liburan tiba. Wisata Alam Mayang yang berada di pusat Kota Pekanbaru ini banyak menyediakan fasilitas hiburan untuk keluarga.",
+      "jadwal_buka": "Every Day (08.00–00.00)",
+      "review": [
+        {
+          "nama_reviewer": "ROHUL SENO",
+          "konten_reviewer": "Tempatnya semakin bersih dan nyaman, Cocok untuk refresing Keluarga"
+        },
+        {
+          "nama_reviewer": "RB IWAN",
+          "konten_reviewer": "Luas,asri,murah ticketnya dan bersih. Cocok untuk rekreasi keluarga"
+        }
+      ],
+      "gambar": [
+        "tamanalammayang",
+        "tamanalammayang1",
+        "tamanalammayang2"
+      ],
+      "bintang": 4.1
+    },
+    {
+      "nama": "Wisata Danau Buatan",
+      "alamat": "Lembah Sari, Kec. Rumbai Pesisir, Kota Pekanbaru, Riau",
+      "deskripsi": "Danau Buatan ini berada di Jalan Pramuka / Jalan Lingkar Danau Buatan, Kelurahan Lembah Sari, Kecamatan Rumbai Timur.",
+      "jadwal_buka": "Every Day (08.00–18.00)",
+      "review": [
+        {
+          "nama_reviewer": "Fajar Yudarma",
+          "konten_reviewer": "Tempat wisata sekaligus tempat rekreasi bagi keluarga dan teman teman yg hobi memancing"
+        },
+        {
+          "nama_reviewer": "Supriyono Supriyono",
+          "konten_reviewer": "Wisata murah untuk keluarga. Bisa mancing di lokasi"
+        }
+      ],
+      "gambar": [
+        "danaubuatan",
+        "danaubuatan1",
+        "danaubuatan2"
+      ],
+      "bintang": 4.1
+    },
+    {
+      "nama": "ASIA FARM HAYDAY",
+      "alamat": "Jl. Badak Ujung, Sail, Kec. Tenayan Raya, Kota Pekanbaru, Riau",
+      "deskripsi": "Asia Farm resmi dibuka sejak tanggal 21 April 2019 dapat merasakan sensasi seperti berada di luar negeri. ",
+      "jadwal_buka": "Every Day (09.00–18.00)",
+      "review": [
+        {
+          "nama_reviewer": "Dewi Wahyuni",
+          "konten_reviewer": "Cocok buat liburan keluarga, edukasi dan hiburan"
+        },
+        {
+          "nama_reviewer": "Rianty RiaNty",
+          "konten_reviewer": "Cukup bagus buat edukasi dan hiburan anak...terus dikembangkan yah"
+        }
+      ],
+      "gambar": [
+        "asiafarm",
+        "asiafarm1",
+        "asiafarm2"
+      ],
+      "bintang": 3.8
+    },
+    {
+      "nama": "Citraland Waterpark",
+      "alamat": "Tengkerang Barat, Kec. Marpoyan Damai, Kota Pekanbaru, Riau",
+      "deskripsi": "Citraland Waterpark Pekanbaru dibangun di atas lahan seluas 1 hektare. Lokasinya terbilang strategis, berdiri megah di tengah kota.",
+      "jadwal_buka": "Every Day (10.00–17.30)",
+      "review": [
+        {
+          "nama_reviewer": "Ruslina Alidar",
+          "konten_reviewer": "Mantap, dan memuaskan untuk liburan bawa keluarga  cocok banget... Aman"
+        },
+        {
+          "nama_reviewer": "Femusara 12",
+          "konten_reviewer": "Water park yg tidak terlalu luas tapi cukup nyaman untuk liburan keluarga"
+        }
+      ],
+      "gambar": [
+        "citralandwaterpark",
+        "citralandwaterpark1",
+        "citralandwaterpark2"
+      ],
+      "bintang": 4.5
+    },
+    {
+      "nama": "Labersa Water Park Riau Fantasi",
+      "alamat": "Jl. Labersa, Simpang Tiga, Kec. Siak Hulu, Kabupaten Kampar, Riau",
+      "deskripsi": "Labersa riau fantasi merupakan tempat hiburan dan wisata yang mempunyai luas sekitar 8 Ha memiliki wahana waterpark dan wahana thempark.",
+      "jadwal_buka": "Every Day (10.00–18.00)",
+      "review": [
+        {
+          "nama_reviewer": "Devha metika sofia de",
+          "konten_reviewer": "Wahana yang menegangkan,membuat saya ketagihan."
+        },
+        {
+          "nama_reviewer": "ryan kido",
+          "konten_reviewer": "Wahana bermain yg seru di kota Pekanbaru"
+        }
+      ],
+      "gambar": [
+        "labersa",
+        "labersa1",
+        "labersa2"
+      ],
+      "bintang": 4.2
+    },
+    {
+      "nama": "Wisata Dakwah Okura",
+      "alamat": "Jl. Raja Panjang Okura, Tebing Tinggi Okura, Kec. Rumbai Pesisir, Kota Pekanbaru, Riau",
+      "deskripsi": "Wisata Dakwah Okura mengusung konsep wisata syariah yang mengangkat kebiasaan yang disunnahkan oleh Rasulullah SAW yakni berkuda, memanah dan berenang.",
+      "jadwal_buka": "Every Day (08.00–17.30)",
+      "review": [
+        {
+          "nama_reviewer": "Yendri Ikhlas Fernando",
+          "konten_reviewer": "Saya pernah kesini. Bagus untuk olahraga islami yakni berkuda dan memanah. Bisa kursys berkuda atau hanya tes naik."
+        },
+        {
+          "nama_reviewer": "Siti Aisyah Rahmi",
+          "konten_reviewer": "Tempat wisata olahraga sunnah terbaik.."
+        }
+      ],
+      "gambar": [
+        "wisataokura",
+        "wisataokura1",
+        "wisataokura2"
+      ],
+      "bintang": 4.3
+    },
+    {
+      "nama": "Nayla Green Valley",
+      "alamat": "Muara Fajar, Kec. Rumbai, Kota Pekanbaru, Riau",
+      "deskripsi": "Objek wisata Nayla Green Valley terletak di Jalan Garuda KM 8 Jalan Belidang dekat Pesantren Ibnu Katsir Muara Fajar Rumbai Pekanbaru. Di sana, banyak fasilitas yang bisa dinikmati bersama keluarga dan orang-orang tersayang.",
+      "jadwal_buka": "Every Day (08.00–05.00)",
+      "review": [
+        {
+          "nama_reviewer": "Ali Bakri",
+          "konten_reviewer": "Tempat mancing bisa harian dan kiloan, cocok bawa keluarga sekaligus refresing"
+        },
+        {
+          "nama_reviewer": "Edi Mak Itam",
+          "konten_reviewer": "Sungguh memanjakan mata.. Rugi tak datang.."
+        }
+      ],
+      "gambar": [
+        "naylagreen",
+        "naylagreen1",
+        "naylagreen2"
+      ],
+      "bintang": 4.5
+    },
+    {
+      "nama": "Masjid Raya An-Nur Provinsi Riau",
+      "alamat": "Jl. Hangtuah Ujung, Sumahilang, Kec. Pekanbaru Kota, Kota Pekanbaru, Riau",
+      "deskripsi": "Masjid Raya An Nur merupakan sebuah masjid yang terletak di Pekanbaru, Indonesia. Masjid ini dibangun pada tahun 1963 dan selesai pada tahun 1968. Masjid yang di ibukota Provinsi Riau, Pekanbaru tersebut saat ini merupakan salah satu yang termegah di Indonesia.",
+      "jadwal_buka": "Every Day (08.00–00.00)",
+      "review": [
+        {
+          "nama_reviewer": "Risang Aji",
+          "konten_reviewer": "bagus dan sangat nyaman"
+        },
+        {
+          "nama_reviewer": "Iqbal Suliansyah",
+          "konten_reviewer": "Arsitekturnya menarik dan unik. Ini mesjid yang bersih dan nyaman juga.Tempatnya strategis dan halaman luas."
+        }
+      ],
+      "gambar": [
+        "masjidrayariau",
+        "masjidrayariau1",
+        "masjidrayariau2"
+      ],
+      "bintang": 4.8
+    }
+  ]
+}

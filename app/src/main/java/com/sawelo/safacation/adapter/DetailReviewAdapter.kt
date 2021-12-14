@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sawelo.safacation.R
+import com.sawelo.safacation.data.ReviewLokasi
 
-class DetailReviewAdapter(private val reviewData: List<Pair<String, String>>) :
+class DetailReviewAdapter(private val reviewData: List<ReviewLokasi>?) :
     RecyclerView.Adapter<DetailReviewAdapter.ListViewHolder>() {
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -22,10 +23,13 @@ class DetailReviewAdapter(private val reviewData: List<Pair<String, String>>) :
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val (nama, konten) = reviewData[position]
-        holder.namaReviewer.text = nama
-        holder.kontenReviewer.text = konten
+        if (reviewData != null) {
+            val nama = reviewData[position].namaReviewer
+            val konten = reviewData[position].kontenReviewer
+            holder.namaReviewer.text = nama
+            holder.kontenReviewer.text = konten
+        }
     }
 
-    override fun getItemCount(): Int = reviewData.size
+    override fun getItemCount(): Int = reviewData?.size ?: 0
 }

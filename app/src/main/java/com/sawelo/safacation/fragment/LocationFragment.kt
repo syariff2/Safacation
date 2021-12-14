@@ -7,18 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sawelo.safacation.R
 import com.sawelo.safacation.activity.DetailActivity
 import com.sawelo.safacation.adapter.AdapterSafa
-import com.sawelo.safacation.data.DataSafa
-import com.sawelo.safacation.data.SourceData
+import com.sawelo.safacation.viewmodel.MainViewModel
 
 class LocationFragment : Fragment(), AdapterSafa.OnItemClickCallback {
 
     private lateinit var rvLocation: RecyclerView
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,9 +37,9 @@ class LocationFragment : Fragment(), AdapterSafa.OnItemClickCallback {
         showRecyclerList()
     }
 
-    override fun onItemClicked(data: DataSafa) {
+    override fun onItemClicked(namaLokasi: String) {
         val intent = Intent(requireContext(), DetailActivity::class.java)
-        intent.putExtra(DetailActivity.DETAIL_EXTRA, data)
+        intent.putExtra(DetailActivity.DETAIL_EXTRA, namaLokasi)
         startActivity(intent)
     }
 
@@ -49,18 +50,10 @@ class LocationFragment : Fragment(), AdapterSafa.OnItemClickCallback {
             rvLocation.layoutManager = LinearLayoutManager(requireContext())
         }
 
-        val dataSafa = mutableListOf<DataSafa>()
-        for (i in SourceData.nameLokasi.indices) {
-            dataSafa.add(DataSafa(
-                SourceData.nameLokasi[i],
-                SourceData.alamat[i],
-                SourceData.gambarLokasi[i][0],
-                SourceData.deskripsi[i]
-            ))
-        }
-
-        val locationAdapter = AdapterSafa(dataSafa)
-        locationAdapter.setOnItemClickCallback(this)
-        rvLocation.adapter = locationAdapter
+        mainViewModel.dataSafa.observe(this, {
+            val locationAdapter = AdapterSafa(it)
+            locationAdapter.setOnItemClickCallback(this)
+            rvLocation.adapter = locationAdapter
+        })
     }
 }

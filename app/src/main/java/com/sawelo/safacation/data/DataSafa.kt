@@ -1,12 +1,29 @@
 package com.sawelo.safacation.data
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
-@Parcelize
-data class DataSafa (
-    val namaLokasi : String,
-    val alamat : String,
-    val poster : Int ,
-    val deskripsi : String,
-):Parcelable
+@Entity
+data class DataSafa(
+    @PrimaryKey
+    val nama: String,
+    val alamat: String,
+    val deskripsi: String,
+    @SerializedName("jadwal_buka")
+    val jadwalBuka: String,
+    val bintang: Double,
+    var gambar: List<String>,
+    val review: List<ReviewLokasi>
+)
+
+data class ReviewLokasi(
+    @SerializedName("nama_reviewer")
+    val namaReviewer: String,
+    @SerializedName("konten_reviewer")
+    val kontenReviewer: String,
+)
+
+data class ListDataSafa(
+    val lokasi: List<DataSafa>
+)
