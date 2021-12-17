@@ -40,6 +40,7 @@
                 android:text="@string/health_1"
                 android:textColor="@color/black"
                 android:textSize="16sp"
+                android:fontFamily="@font/mmedium"
                 android:textStyle="bold" />
 
             <TextView
@@ -47,6 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="7"
+                android:fontFamily="@font/hregular"
                 android:text="@string/health_deskripsi_1"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
@@ -91,6 +93,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:fontFamily="@font/mmedium"
                 app:layout_constraintBottom_toBottomOf="@+id/poster_health_2"
                 app:layout_constraintStart_toEndOf="@+id/poster_health_2"
                 app:layout_constraintTop_toTopOf="@+id/poster_health_2" />
@@ -100,6 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="7"
+                android:fontFamily="@font/hregular"
                 android:text="@string/health_deskripsi_2"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
@@ -141,6 +145,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:fontFamily="@font/mmedium"
                 app:layout_constraintBottom_toBottomOf="@+id/poster_health_3"
                 app:layout_constraintStart_toEndOf="@+id/poster_health_3"
                 app:layout_constraintTop_toTopOf="@+id/poster_health_3" />
@@ -152,6 +157,7 @@
                 android:text="@string/health_deskripsi_3"
                 android:textColor="@color/black"
                 android:textSize="13sp"
+                android:fontFamily="@font/hregular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/title_health_3"
                 app:layout_constraintTop_toBottomOf="@+id/title_health_3" />
