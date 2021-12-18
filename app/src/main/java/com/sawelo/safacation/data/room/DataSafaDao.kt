@@ -9,7 +9,7 @@ import com.sawelo.safacation.data.DataSafa
 
 @Dao
 interface DataSafaDao {
-    @Query("SELECT * FROM datasafa")
+    @Query("SELECT * FROM datasafa ORDER BY nama")
     fun getAll(): LiveData<List<DataSafa>>
 
     @Query("SELECT * FROM datasafa WHERE nama == :namaLokasi")

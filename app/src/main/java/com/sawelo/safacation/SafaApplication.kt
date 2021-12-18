@@ -1,6 +1,7 @@
 package com.sawelo.safacation
 
 import android.app.Application
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
@@ -14,6 +15,7 @@ import java.util.concurrent.Executors
 class SafaApplication : Application() {
     override fun onCreate() {
         super.onCreate()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         executorService = Executors.newFixedThreadPool(2)
 

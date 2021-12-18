@@ -7,25 +7,21 @@
     <application
         android:name=".SafaApplication"
         android:allowBackup="false"
-        android:icon="@drawable/ic_apk"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Safacation">
-        <activity
-            android:name=".activity.SplashScreenActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
-
         <activity
             android:name=".activity.DetailActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Safacation.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
